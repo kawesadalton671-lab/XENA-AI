@@ -1,18 +1,43 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XENA V5</title><style>*{box-sizing:border-box}body{margin:0;background:#050510;color:#fff;font-family:system-ui}.head{background:linear-gradient(90deg,#6a00ff,#ff00a0);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}.logo{font-weight:900;font-size:18px}.support-btn{background:#fff;color:#6a00ff;border:none;padding:9px 16px;border-radius:25px;font-weight:900;font-size:13px;cursor:pointer}.wrap{max-width:700px;margin:0 auto;padding:18px 14px 120px}.msg{margin:14px 0;padding:16px 20px;border-radius:24px;line-height:1.8;font-size:15px;white-space:pre-wrap;animation:pop.3s ease}.user{background:linear-gradient(135deg,#7a00ff,#9a30ff);margin-left:auto;border-bottom-right-radius:6px;max-width:85%}@keyframes pop{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}.bot{background:#16162a;border:1px solid #2a2a4a;border-bottom-left-radius:6px}.bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,20,.95);backdrop-filter:blur(20px);border-top:1px solid #222;display:flex;padding:14px;max-width:700px;margin:0 auto;gap:10px}input{flex:1;padding:16px 22px;border-radius:30px;border:1px solid #333;background:#1a1a2e;color:#fff;font-size:16px;outline:none}button.send{background:linear-gradient(90deg,#6a00ff,#ff00a0);border:none;color:#fff;padding:16px 26px;border-radius:30px;font-weight:900;cursor:pointer}#supportBox{display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);width:92%;max-width:380px;background:#1a1a2e;border:1px solid #6a00ff;border-radius:24px;padding:24px;z-index:30}.typing-dots{display:flex;gap:6px;padding:4px 0}.typing-dots span{width:8px;height:8px;background:#9a30ff;border-radius:50%;animation:bounce 1.4s infinite}.typing-dots span:nth-child(2){animation-delay:.2s}.typing-dots span:nth-child(3){animation-delay:.4s}@keyframes bounce{0%,80%,100%{transform:translateY(0);opacity:.5}40%{transform:translateY(-8px);opacity:1}}.close{position:absolute;top:12px;right:18px;font-size:22px;cursor:pointer}</style></head><body>
-<div class="head"><div class="logo">🔥 XENA V5 - META STYLE</div><button class="support-btn" onclick="toggleSupport()">SUPPORT 💬</button></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XENA V4 - Meta Style</title><style>*{box-sizing:border-box}body{margin:0;background:#050510;color:#fff;font-family:system-ui}.head{background:linear-gradient(90deg,#6a00ff,#ff00a0);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}.logo{font-weight:900;font-size:18px}.support-btn{background:#fff;color:#6a00ff;border:none;padding:9px 16px;border-radius:25px;font-weight:900;font-size:13px;cursor:pointer}.wrap{max-width:700px;margin:0 auto;padding:18px 14px 120px}.msg{margin:14px 0;padding:16px 20px;border-radius:24px;line-height:1.8;font-size:15px;white-space:pre-wrap}.user{background:linear-gradient(135deg,#7a00ff,#9a30ff);margin-left:auto;border-bottom-right-radius:6px;max-width:85%}.bot{background:#16162a;border:1px solid #2a2a4a;border-bottom-left-radius:6px}.bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,20,.95);backdrop-filter:blur(20px);border-top:1px solid #222;display:flex;padding:14px;max-width:700px;margin:0 auto;gap:10px}input{flex:1;padding:16px 22px;border-radius:30px;border:1px solid #333;background:#1a1a2e;color:#fff;font-size:16px;outline:none}button.send{background:linear-gradient(90deg,#6a00ff,#ff00a0);border:none;color:#fff;padding:16px 26px;border-radius:30px;font-weight:900;cursor:pointer}#supportBox{display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);width:92%;max-width:380px;background:#1a1a2e;border:1px solid #6a00ff;border-radius:24px;padding:24px;z-index:30}.close{position:absolute;top:12px;right:18px;font-size:22px;cursor:pointer}</style></head><body>
+<div class="head"><div class="logo">🔥 XENA V4 - META STYLE</div><button class="support-btn" onclick="toggleSupport()">SUPPORT 💬</button></div>
 <div id="supportBox"><span class="close" onclick="toggleSupport()">✕</span><h3>XENA Support</h3><a href="https://wa.me/256700000000" style="display:block;background:#252540;padding:12px;border-radius:12px;margin:8px 0;color:#fff;text-decoration:none;text-align:center">💬 WhatsApp</a></div>
-<div class="wrap" id="chat"><div class="msg bot">Hi Dalton! I'm <b>XENA V5</b> 🌍
+<div class="wrap" id="chat"><div class="msg bot">Hi Dalton! I'm <b>XENA V4</b> 🌍
 
-Now with:
-✅ Meta AI steps style
-✅ ChatGPT typing • • •
-✅ Beautiful pop animation
+Now I answer <b>like Meta AI</b> with:
 
-Ask me anything!</div></div>
-<div class="bar"><input id="q" placeholder="Ask anything in the world..." onkeypress="if(event.key==='Enter')send()"><button class="send" onclick="send()">SEND</button></div>
+✅ Steps
+✅ Bold headings
+✅ Bullets
+✅ Clear flow
+
+Ask "Explain quantum computing in steps"!</div></div>
+<div class="bar"><input id="q" placeholder="Ask anything..." onkeypress="if(event.key==='Enter')send()"><button class="send" onclick="send()">SEND</button></div>
 <script>
 const KEY="AQ.Ab8RN6IESzisKBOl60soehyUX7nltU1TlIjUWc5fgJ-MEDNcCg";
-const SYSTEM_PROMPT = `You are XENA World Brain built by Dalton in Kampala, Uganda. Answer EXACTLY like Meta AI: short intro, then bold headings, bullets with -, 2-3 sections, friendly, end with question. No long paragraphs. Use real line breaks.`;
+const SYSTEM_PROMPT = `You are XENA World Brain built by Dalton in Kampala. Answer EXACTLY like Meta AI - friendly, intelligent, beautiful formatting.
+
+RULES FOR EVERY ANSWER:
+1. Start with a short punchy intro (1 sentence)
+2. Use bold headings with ** like **What it is:**
+3. Use bullets with -
+4. Break into 2-3 clear steps or sections
+5. Keep it short, mobile-friendly, no long paragraphs
+6. Use emojis lightly (1-2)
+7. End with a quick follow-up question if helpful
+8. Never show \\n as text, use real new lines
+
+Example style:
+"Quantum computing is a total flip on normal computing.
+
+- **Normal computers:** Use bits = 0 OR 1
+- **Quantum computers:** Use qubits = 0 AND 1 at same time (superposition)
+
+**Why it matters:**
+- Can solve impossible problems
+- Super fast for chemistry, codes
+
+Want me to explain qubits deeper?"`;
+
 function toggleSupport(){let s=document.getElementById('supportBox');s.style.display=s.style.display==='block'?'none':'block';}
-async function send(){let i=document.getElementById('q'),t=i.value.trim();if(!t)return;let c=document.getElementById('chat');c.innerHTML+=`<div class="msg user">${t}</div>`;i.value='';let b=document.createElement('div');b.className='msg bot';b.innerHTML=`<div class="typing-dots"><span></span><span></span><span></span></div>`;c.appendChild(b);window.scrollTo(0,document.body.scrollHeight);try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:SYSTEM_PROMPT + "\n\nQuestion: " + t}]}]})});let d=await r.json();let txt=d.candidates?.[0]?.content?.parts?.[0]?.text||'Error';b.innerText=txt;}catch(e){try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(SYSTEM_PROMPT + " Q: " + t));b.innerText=await r2.text();}catch(e2){b.innerText='Error: '+e;}}window.scrollTo(0,document.body.scrollHeight);}
+async function send(){let i=document.getElementById('q'),t=i.value.trim();if(!t)return;let c=document.getElementById('chat');c.innerHTML+=`<div class="msg user">${t}</div>`;i.value='';let b=document.createElement('div');b.className='msg bot';b.innerText='XENA thinking in steps...';c.appendChild(b);window.scrollTo(0,document.body.scrollHeight);try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:SYSTEM_PROMPT + "\n\nUser question: " + t}]}]})});let d=await r.json();let txt=d.candidates?.[0]?.content?.parts?.[0]?.text||'Error';b.innerText=txt;}catch(e){b.innerText='Backup thinking...';try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(SYSTEM_PROMPT + " Question: " + t));b.innerText=await r2.text();}catch(e2){b.innerText='Error: '+e;}}window.scrollTo(0,document.body.scrollHeight);}
 </script></body></html>
