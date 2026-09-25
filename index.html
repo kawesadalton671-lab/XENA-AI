@@ -1,52 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XENA AI - Uganda Business AI</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#7C3AED">
+<title>XENA ALL IN ONE</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
-.logo{font-size:70px;margin-bottom:10px}
-h1{font-size:48px;color:#7C3AED;text-shadow:0 0 20px #7C3AED}
-h2{color:#A78BFA;margin:10px 0 30px;font-weight:400}
-.card{background:#111;border:1px solid #333;border-radius:20px;padding:25px;width:100%;max-width:420px;margin-top:20px}
-.btn{background:linear-gradient(135deg,#7C3AED,#A78BFA);color:#fff;border:0;padding:18px 30px;border-radius:14px;font-size:19px;font-weight:700;width:100%;margin-top:20px;cursor:pointer}
-.btn:active{transform:scale(0.98)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;text-align:left}
-.item{background:#1a1a1a;padding:14px;border-radius:12px;font-size:14px;border:1px solid #222}
-.item b{color:#7C3AED;display:block;margin-bottom:4px}
-.footer{margin-top:40px;color:#555;font-size:13px}
+*{box-sizing:border-box}
+body{margin:0;background:#080810;color:#fff;font-family:system-ui}
+.head{background:linear-gradient(90deg,#6a00ff,#ff00a0,#ff7a00);padding:16px;text-align:center;font-weight:900;font-size:26px;position:sticky;top:0;z-index:10}
+.wrap{max-width:650px;margin:0 auto;padding:15px 15px 110px}
+.msg{margin:12px 0;padding:14px 18px;border-radius:22px;line-height:1.6;white-space:pre-wrap;max-width:90%;font-size:15px}
+.user{background:linear-gradient(90deg,#6a00ff,#8a2be2);margin-left:auto;border-bottom-right-radius:6px}
+.bot{background:#1e1e2e;border:1px solid #333;border-bottom-left-radius:6px}
+.bar{position:fixed;bottom:0;left:0;right:0;background:#0f0f18;border-top:1px solid #222;display:flex;padding:12px;max-width:650px;margin:0 auto;gap:8px}
+input{flex:1;padding:15px 20px;border-radius:30px;border:none;background:#1e1e2e;color:#fff;font-size:16px;outline:none}
+button{background:linear-gradient(90deg,#6a00ff,#ff00a0);border:none;color:#fff;padding:15px 22px;border-radius:30px;font-weight:900;cursor:pointer}
+.status{font-size:12px;text-align:center;color:#888;padding:5px}
 </style>
 </head>
 <body>
-<div class="logo">🔥</div>
-<h1>XENA AI</h1>
-<h2>Uganda's #1 Business AI Assistant</h2>
+<div class="head">🔥 XENA - ALL IN ONE WORLD BRAIN 🌍</div>
+<div class="wrap" id="chat">
+<div class="msg bot">Hi Dalton! I'm XENA ALL-IN-ONE! 🧠🔥
 
-<div class="card">
-<p>I'm Dalton's AI - Built for Ugandan Businesses</p>
-<button class="btn" onclick="document.getElementById('chat').style.display='block';this.style.display='none'">💬 Chat with XENA</button>
-<div id="chat" style="display:none;margin-top:20px">
-<input id="msg" placeholder="Ask about eFris, URA, tax..." style="width:100%;padding:16px;border-radius:12px;border:1px solid #333;background:#000;color:#fff">
-<button class="btn" onclick="let m=document.getElementById('msg').value;if(m){document.getElementById('reply').innerHTML='<p style=text-align:left;background:#1a1a1a;padding:15px;border-radius:12px;margin-top:15px>🚀 XENA: I got your question: <b>'+m+'</b><br><br>✅ eFris, URA, Airtel Money & BUBU support is active! Full AI brain is loading...</p>'}">Send</button>
-<div id="reply"></div>
+I have 2 BRAINS inside me:
+1. YOUR Gemini API Key Brain
+2. World Backup Brain
+
+I can do:
+✅ Answer ANY question
+✅ URA Tax calculations
+✅ Coding & Business
+✅ Write emails, letters
+✅ Everything!
+
+Ask me anything now!</div>
+<div class="status" id="status">Brains: API + Backup Ready ✅</div>
 </div>
 
-<div class="grid">
-<div class="item"><b>📄 eFris</b>Invoice & Stock</div>
-<div class="item"><b>🏦 URA</b>Tax Filing</div>
-<div class="item"><b>📱 Airtel Money</b>Payments</div>
-<div class="item"><b>🇺🇬 BUBU</b>Local Business</div>
+<div class="bar">
+<input id="q" placeholder="Ask XENA anything..." onkeypress="if(event.key==='Enter')send()">
+<button onclick="send()">SEND 🚀</button>
 </div>
-</div>
-
-<div class="footer">kawesadalton671-lab.github.io/XENA-AI<br>Made in Uganda 🇺🇬 by Dalton</div>
 
 <script>
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+const GEMINI_KEY = "AQ.Ab8RN6IlS-2dwzUUQVaBsesQppx-JKMmPkCfjkzw9-eE5v-VSA";
+
+async function send(){
+ let input = document.getElementById('q');
+ let text = input.value.trim();
+ if(!text) return;
+ let chat = document.getElementById('chat');
+ chat.innerHTML += `<div class="msg user">${text}</div>`;
+ input.value = "";
+ let bot = document.createElement('div');
+ bot.className = 'msg bot';
+ bot.innerText = '🧠 XENA thinking with API brain...';
+ chat.appendChild(bot);
+ document.getElementById('status').innerText = 'Using API Brain...';
+ window.scrollTo(0, document.body.scrollHeight);
+
+ // TRY GEMINI API FIRST
+ try{
+  let res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key='+GEMINI_KEY,{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   body: JSON.stringify({contents:[{parts:[{text:text}]}]})
+  });
+  let data = await res.json();
+  if(data.candidates && data.candidates[0] && data.candidates[0].content.parts[0].text){
+   bot.innerText = data.candidates[0].content.parts[0].text;
+   document.getElementById('status').innerText = 'Answered by Gemini API ✅';
+   return;
+  } else {
+   throw new Error('API failed, switching to backup');
+  }
+ } catch(e){
+  bot.innerText = 'API brain failed, switching to WORLD backup brain... 🌍';
+  document.getElementById('status').innerText = 'API failed, using World Brain...';
+ }
+
+ // BACKUP WORLD BRAIN
+ try{
+  let r2 = await fetch('https://text.pollinations.ai/'+encodeURIComponent(text));
+  let t2 = await r2.text();
+  bot.innerText = t2;
+  document.getElementById('status').innerText = 'Answered by World Backup Brain 🌍✅';
+ } catch(e2){
+  bot.innerText = 'Both brains failed: ' + e2.message;
+ }
+}
 </script>
 </body>
 </html>
