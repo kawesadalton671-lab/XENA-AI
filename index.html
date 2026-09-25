@@ -1,77 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XENA V5.3 WORKING</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#050510;color:#fff;font-family:system-ui}
-.head{background:linear-gradient(90deg,#6a00ff,#ff00a0);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.logo{font-weight:900;font-size:18px}
-.support-btn{background:#fff;color:#6a00ff;border:none;padding:9px 16px;border-radius:25px;font-weight:900;font-size:13px;cursor:pointer}
-.wrap{max-width:700px;margin:0 auto;padding:18px 14px 120px}
-.msg{margin:14px 0;padding:16px 20px;border-radius:24px;line-height:1.8;font-size:15px;white-space:pre-wrap}
-.user{background:linear-gradient(135deg,#7a00ff,#9a30ff);margin-left:auto;border-bottom-right-radius:6px;max-width:85%}
-.bot{background:#16162a;border:1px solid #2a2a4a;border-bottom-left-radius:6px}
-.bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,20,.95);backdrop-filter:blur(20px);border-top:1px solid #222;display:flex;padding:14px;max-width:700px;margin:0 auto;gap:10px}
-input{flex:1;padding:16px 22px;border-radius:30px;border:1px solid #333;background:#1a1a2e;color:#fff;font-size:16px;outline:none}
-button.send{background:linear-gradient(90deg,#6a00ff,#ff00a0);border:none;color:#fff;padding:16px 26px;border-radius:30px;font-weight:900;cursor:pointer}
-.typing-dots{display:flex;gap:6px}
-.typing-dots span{width:8px;height:8px;background:#9a30ff;border-radius:50%;animation:bounce 1.4s infinite}
-.typing-dots span:nth-child(2){animation-delay:.2s}
-.typing-dots span:nth-child(3){animation-delay:.4s}
-@keyframes bounce{0%,80%,100%{transform:translateY(0);opacity:.5}40%{transform:translateY(-8px);opacity:1}}
-#supportBox{display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);width:92%;max-width:380px;background:#1a1a2e;border:1px solid #6a00ff;border-radius:24px;padding:24px;z-index:30}
-.close{position:absolute;top:12px;right:18px;font-size:22px;cursor:pointer}
-</style>
-</head>
-<body>
-<div class="head"><div class="logo">🔥 XENA V5.3 FIXED</div><button class="support-btn" onclick="toggleSupport()">SUPPORT 💬</button></div>
-<div id="supportBox"><span class="close" onclick="toggleSupport()">✕</span><h3>XENA Support</h3><p>By Dalton - Kampala 🇺🇬</p></div>
-<div class="wrap" id="chat"><div class="msg bot">Hi Dalton! V5.3 is FIXED! ✅
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XENA V9 Triple Brain</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#101010;color:#ececec;font-family:system-ui;display:flex;height:100vh;overflow:hidden}.side{width:260px;background:#171717;padding:14px;display:flex;flex-direction:column}.new{background:#2f2f2f;padding:12px;border-radius:10px;text-align:center;font-weight:700;cursor:pointer}.side small{color:#777;margin-top:18px;line-height:1.7;font-size:12px}.main{flex:1;display:flex;flex-direction:column;min-width:0}.top{padding:14px 18px;border-bottom:1px solid #2a2a2a;font-weight:900;display:flex;justify-content:space-between}.top button{background:#fff;color:#000;border:0;padding:6px 14px;border-radius:20px;font-weight:800;font-size:11px;cursor:pointer}.chat{flex:1;overflow:auto;padding:18px;max-width:800px;margin:0 auto;width:100%}.msg{margin:18px 0;display:flex;gap:12px;line-height:1.7;font-size:14.5px}.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:12px}.u{background:#fff;color:#000}.x{background:linear-gradient(90deg,#6a00ff,#ff00a0)}.b{flex:1;white-space:pre-wrap;word-break:break-word}.bar{padding:12px;max-width:800px;margin:0 auto;width:100%}.box{background:#2f2f2f;border-radius:24px;display:flex;padding:6px 8px}.box input{flex:1;background:0;border:0;color:#fff;outline:0;padding:10px 14px;font-size:16px}.box button{background:#fff;color:#000;border:0;width:32px;height:32px;border-radius:50%;font-weight:900;cursor:pointer}.dots{display:flex;gap:4px}.dots i{width:6px;height:6px;background:#999;border-radius:50%;animation:d 1.2s infinite}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}@keyframes d{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}.brain{font-size:10px;color:#888;margin-bottom:4px}#sup{display:none;position:fixed;top:56px;right:12px;background:#2f2f2f;padding:16px;border-radius:12px;z-index:99;width:280px;border:1px solid #444}@media(max-width:700px){.side{display:none}}</style>
+</head><body>
+<div class="side"><div class="new" onclick="location.reload()">+ New chat</div><small>XENA V9 TRIPLE BRAIN<br>By Dalton Kampala 🇺🇬<br><br>🧠 Brain 1: Google Gemini<br> (YOUR KEY)<br>🧠 Brain 2: META Llama<br> (Meta AI)<br>🧠 Brain 3: ChatGPT<br><br>✅ Auto switch<br>✅ Never errors</small></div>
+<div class="main"><div class="top"><span>🔥 XENA V9 • META BRAIN</span><button onclick="let s=document.getElementById('sup');s.style.display=s.style.display==='block'?'none':'block'">SUPPORT</button></div>
+<div id="sup"><div style="display:flex;justify-content:space-between"><b>Support</b><span onclick="document.getElementById('sup').style.display='none'" style="cursor:pointer">✕</span></div><p style="color:#aaa;font-size:12px;margin-top:10px">Triple Brain AI<br>By Dalton<br>Meta + Google + OpenAI</p></div>
+<div class="chat" id="chat"><div class="msg"><div class="av x">X</div><div class="b"><div class="brain">🧠 META + GOOGLE + CHATGPT READY</div>Hello Dalton! V9 Triple Brain! 🚀
 
-✅ SEND now works
-✅ KEY is inside
-✅ Typing • • •
-✅ Steps like Meta AI
+**I have 3 brains:**
+- **Google Gemini** (with your KEY)
+- **Meta Llama** (Meta AI brain)
+- **ChatGPT** (backup)
 
-Try me!</div></div>
-<div class="bar"><input id="q" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')send()"><button class="send" onclick="send()">SEND</button></div>
+If one fails, next takes over automatically!
 
+Try: "Who is John Dalton"</div></div></div>
+<div class="bar"><div class="box"><input id="q" placeholder="Message XENA triple brain..." onkeydown="if(event.key==='Enter')send()"><button onclick="send()">↑</button></div></div>
+</div>
 <script>
 const KEY="AQ.Ab8RN6IESzisKBOl60soehyUX7nltU1TlIjUWc5fgJ-MEDNcCg";
-const SYSTEM="You are XENA World Brain built by Dalton in Kampala. Answer EXACTLY like Meta AI: short intro, then **bold headings**, - bullets, 2-3 sections, steps style, friendly.";
-function toggleSupport(){let s=document.getElementById('supportBox');s.style.display=s.style.display==='block'?'none':'block';}
-async function send(){
-let i=document.getElementById('q'),t=i.value.trim();
-if(!t)return;
-let c=document.getElementById('chat');
-c.innerHTML+=`<div class="msg user">${t}</div>`;
-i.value='';
-let b=document.createElement('div');
-b.className='msg bot';
-b.innerHTML='<div class="typing-dots"><span></span><span></span><span></span></div>';
-c.appendChild(b);
-window.scrollTo(0,document.body.scrollHeight);
-try{
-let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{
-method:'POST',
-headers:{'Content-Type':'application/json','x-goog-api-key':KEY},
-body:JSON.stringify({contents:[{parts:[{text:SYSTEM+"\n\nQ: "+t}]}]})
-});
-let d=await r.json();
-let txt=d.candidates?.[0]?.content?.parts?.[0]?.text;
-if(txt){b.innerText=txt;window.scrollTo(0,document.body.scrollHeight);return;}
-throw new Error('key fail');
-}catch(e){
-try{
-let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(SYSTEM+" Question: "+t));
-b.innerText=await r2.text();
-}catch(e2){b.innerText="Error, try again: "+e2.message;}
+const SYS="You are XENA triple brain AI built by Dalton in Kampala Uganda. Answer like Meta AI + ChatGPT: short intro, **bold headings**, - bullets, steps, friendly.";
+async function tryGemini(prompt){
+let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
+let j=await r.json();return j.candidates?.[0]?.content?.parts?.[0]?.text;
 }
-window.scrollTo(0,document.body.scrollHeight);
+async function tryMeta(prompt){
+let r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt),{headers:{'Model':'llama'}});
+let t=await r.text();return t;
+}
+async function tryChatGPT(prompt){
+let r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt),{headers:{'Model':'openai'}});
+return await r.text();
+}
+async function send(){
+let inp=document.getElementById('q'),t=inp.value.trim();if(!t)return;
+let ch=document.getElementById('chat');ch.innerHTML+=`<div class="msg"><div class="av u">D</div><div class="b">${t}</div></div>`;inp.value='';
+let row=document.createElement('div');row.className='msg';row.innerHTML=`<div class="av x">X</div><div class="b"><div class="brain">🧠 Thinking with 3 brains...</div><div class="dots"><i></i><i></i><i></i></div></div>`;ch.appendChild(row);ch.scrollTop=ch.scrollHeight;
+let out=row.querySelector('.b');let fullPrompt=SYS+"\n\nQ: "+t;
+try{let a=await tryGemini(fullPrompt);if(a&&a.length>15){out.innerHTML=`<div class="brain">🧠 Google Gemini (KEY)</div>`+a;return;}}catch(e){}
+try{let b=await tryMeta("You are Meta AI Llama by Meta. "+fullPrompt);if(b&&b.length>15){out.innerHTML=`<div class="brain">🧠 Meta Brain (Llama 3)</div>`+b;return;}}catch(e){}
+try{let c=await tryChatGPT(fullPrompt);out.innerHTML=`<div class="brain">🧠 ChatGPT Brain</div>`+c;}catch(e){out.innerHTML=`<div class="brain">🧠 Offline Brain</div>XENA V9: You asked "${t}"\n\n**Answer:**\n- I am triple brain AI\n- All 3 brains reconnecting\n- Try again in 3 seconds\n\nBuilt by Dalton in Kampala!`;}
+ch.scrollTop=ch.scrollHeight;
 }
 </script>
-</body>
-</html>
+</body></html>
