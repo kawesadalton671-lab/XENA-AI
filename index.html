@@ -1,95 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XENA ALL IN ONE</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#080810;color:#fff;font-family:system-ui}
-.head{background:linear-gradient(90deg,#6a00ff,#ff00a0,#ff7a00);padding:16px;text-align:center;font-weight:900;font-size:26px;position:sticky;top:0;z-index:10}
-.wrap{max-width:650px;margin:0 auto;padding:15px 15px 110px}
-.msg{margin:12px 0;padding:14px 18px;border-radius:22px;line-height:1.6;white-space:pre-wrap;max-width:90%;font-size:15px}
-.user{background:linear-gradient(90deg,#6a00ff,#8a2be2);margin-left:auto;border-bottom-right-radius:6px}
-.bot{background:#1e1e2e;border:1px solid #333;border-bottom-left-radius:6px}
-.bar{position:fixed;bottom:0;left:0;right:0;background:#0f0f18;border-top:1px solid #222;display:flex;padding:12px;max-width:650px;margin:0 auto;gap:8px}
-input{flex:1;padding:15px 20px;border-radius:30px;border:none;background:#1e1e2e;color:#fff;font-size:16px;outline:none}
-button{background:linear-gradient(90deg,#6a00ff,#ff00a0);border:none;color:#fff;padding:15px 22px;border-radius:30px;font-weight:900;cursor:pointer}
-.status{font-size:12px;text-align:center;color:#888;padding:5px}
-</style>
-</head>
-<body>
-<div class="head">🔥 XENA - ALL IN ONE WORLD BRAIN 🌍</div>
-<div class="wrap" id="chat">
-<div class="msg bot">Hi Dalton! I'm XENA ALL-IN-ONE! 🧠🔥
-
-I have 2 BRAINS inside me:
-1. YOUR Gemini API Key Brain
-2. World Backup Brain
-
-I can do:
-✅ Answer ANY question
-✅ URA Tax calculations
-✅ Coding & Business
-✅ Write emails, letters
-✅ Everything!
-
-Ask me anything now!</div>
-<div class="status" id="status">Brains: API + Backup Ready ✅</div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XENA WORLD BRAIN + SUPPORT</title><style>*{box-sizing:border-box}body{margin:0;background:#080810;color:#fff;font-family:system-ui}.head{background:linear-gradient(90deg,#6a00ff,#ff00a0);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}.logo{font-weight:900;font-size:18px}.support-btn{background:#fff;color:#6a00ff;border:none;padding:8px 14px;border-radius:20px;font-weight:900;font-size:12px}.wrap{max-width:650px;margin:0 auto;padding:15px 15px 110px}.msg{margin:12px 0;padding:14px 18px;border-radius:22px;line-height:1.6;white-space:pre-wrap;max-width:90%}.user{background:linear-gradient(90deg,#6a00ff,#8a2be2);margin-left:auto}.bot{background:#1e1e2e;border:1px solid #333}.bar{position:fixed;bottom:0;left:0;right:0;background:#0f0f18;border-top:1px solid #222;display:flex;padding:12px;max-width:650px;margin:0 auto;gap:8px}input{flex:1;padding:15px 20px;border-radius:30px;border:none;background:#1e1e2e;color:#fff;font-size:16px}button.send{background:linear-gradient(90deg,#6a00ff,#ff00a0);border:none;color:#fff;padding:15px 22px;border-radius:30px;font-weight:900}#supportBox{display:none;position:fixed;top:60px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;background:#1e1e2e;border:1px solid #6a00ff;border-radius:20px;padding:20px;z-index:20}.supportBox h3{margin:0 0 12px;color:#ff00a0}.supportBox a{display:block;background:#222;padding:12px;border-radius:12px;margin:8px 0;color:#fff;text-decoration:none;text-align:center}.close{position:absolute;top:10px;right:15px;font-size:20px;cursor:pointer}</style></head><body>
+<div class="head"><div class="logo">🔥 XENA - WORLD BRAIN</div><button class="support-btn" onclick="toggleSupport()">SUPPORT 💬</button></div>
+<div id="supportBox" class="supportBox"><span class="close" onclick="toggleSupport()">✕</span><h3>XENA Support Center</h3>
+<a href="https://wa.me/256700000000?text=Hi Dalton, I need help with XENA" target="_blank">💬 WhatsApp Support</a>
+<a href="https://aistudio.google.com/app/apikey" target="_blank">🔑 Manage Gemini API Key</a>
+<a href="#" onclick="alert('XENA World Brain v2.0\nBuilt by Dalton in Kampala\nPowered by Gemini 2.0 + Pollinations\nAnswers ANY world question!');return false;">ℹ️ About XENA</a>
+<a href="#" onclick="document.getElementById('supportBox').style.display='none';document.getElementById('q').value='How do I use XENA?';send();return false;">❓ How to Use</a>
 </div>
-
-<div class="bar">
-<input id="q" placeholder="Ask XENA anything..." onkeypress="if(event.key==='Enter')send()">
-<button onclick="send()">SEND 🚀</button>
-</div>
-
+<div class="wrap" id="chat"><div class="msg bot">Hi Dalton! I'm XENA World Brain 🌍\n\nI can answer ANY question in the world!\nTap SUPPORT for help!</div></div>
+<div class="bar"><input id="q" placeholder="Ask anything in the world..." onkeypress="if(event.key==='Enter')send()"><button class="send" onclick="send()">SEND</button></div>
 <script>
-const GEMINI_KEY = "AQ.Ab8RN6IlS-2dwzUUQVaBsesQppx-JKMmPkCfjkzw9-eE5v-VSA";
-
-async function send(){
- let input = document.getElementById('q');
- let text = input.value.trim();
- if(!text) return;
- let chat = document.getElementById('chat');
- chat.innerHTML += `<div class="msg user">${text}</div>`;
- input.value = "";
- let bot = document.createElement('div');
- bot.className = 'msg bot';
- bot.innerText = '🧠 XENA thinking with API brain...';
- chat.appendChild(bot);
- document.getElementById('status').innerText = 'Using API Brain...';
- window.scrollTo(0, document.body.scrollHeight);
-
- // TRY GEMINI API FIRST
- try{
-  let res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key='+GEMINI_KEY,{
-   method:'POST',
-   headers:{'Content-Type':'application/json'},
-   body: JSON.stringify({contents:[{parts:[{text:text}]}]})
-  });
-  let data = await res.json();
-  if(data.candidates && data.candidates[0] && data.candidates[0].content.parts[0].text){
-   bot.innerText = data.candidates[0].content.parts[0].text;
-   document.getElementById('status').innerText = 'Answered by Gemini API ✅';
-   return;
-  } else {
-   throw new Error('API failed, switching to backup');
-  }
- } catch(e){
-  bot.innerText = 'API brain failed, switching to WORLD backup brain... 🌍';
-  document.getElementById('status').innerText = 'API failed, using World Brain...';
- }
-
- // BACKUP WORLD BRAIN
- try{
-  let r2 = await fetch('https://text.pollinations.ai/'+encodeURIComponent(text));
-  let t2 = await r2.text();
-  bot.innerText = t2;
-  document.getElementById('status').innerText = 'Answered by World Backup Brain 🌍✅';
- } catch(e2){
-  bot.innerText = 'Both brains failed: ' + e2.message;
- }
-}
-</script>
-</body>
-</html>
+const KEY="AQ.Ab8RN6IESzisKBOl60soehyUX7nltU1TlIjUWc5fgJ-MEDNcCg";
+function toggleSupport(){let s=document.getElementById('supportBox');s.style.display=s.style.display==='block'?'none':'block';}
+async function send(){let i=document.getElementById('q'),t=i.value.trim();if(!t)return;let c=document.getElementById('chat');c.innerHTML+=`<div class="msg user">${t}</div>`;i.value='';let b=document.createElement('div');b.className='msg bot';b.innerText='XENA thinking...';c.appendChild(b);window.scrollTo(0,999999);try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:t}]}]})});let d=await r.json();if(d.candidates&&d.candidates[0]){b.innerText=d.candidates[0].content.parts[0].text;}else{throw 0}}catch(e){try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(t));b.innerText=await r2.text();}catch(e2){b.innerText='Support: Gemini key error. World Brain backup active! Error: '+e;}}window.scrollTo(0,999999);}
+</script></body></html>
