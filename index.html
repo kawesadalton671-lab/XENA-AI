@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XENA V10 Global Factory</title>
-<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0f0f0f;color:#eee;font-family:system-ui;display:flex;height:100vh;overflow:hidden}.side{width:280px;background:#171717;padding:12px;display:flex;flex-direction:column;overflow:auto}.agent{padding:10px 12px;border-radius:10px;margin:4px 0;cursor:pointer;background:#252525;font-size:13px;border:1px solid transparent}.agent.active{background:linear-gradient(90deg,#6a00ff,#ff00a0);border-color:#ff00a0;font-weight:700}.new{background:#2f2f2f;padding:10px;border-radius:10px;text-align:center;font-weight:700;cursor:pointer;margin-bottom:10px}.main{flex:1;display:flex;flex-direction:column;min-width:0}.top{padding:12px 16px;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;font-weight:900}.top span{font-size:14px}.vol{display:flex;gap:6px}.vol button{background:#252525;border:1px solid #333;color:#fff;padding:5px 10px;border-radius:16px;font-size:11px;cursor:pointer}.vol button.on{background:#fff;color:#000;font-weight:800}.chat{flex:1;overflow:auto;padding:18px;max-width:900px;margin:0 auto;width:100%}.msg{margin:16px 0;display:flex;gap:10px;line-height:1.8;font-size:14.5px}.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:11px}.u{background:#fff;color:#000}.x{background:linear-gradient(90deg,#00ff88,#6a00ff)}.b{flex:1;white-space:pre-wrap;word-break:break-word}.bar{padding:12px;max-width:900px;margin:0 auto;width:100%}.box{background:#212121;border:1px solid #333;border-radius:24px;display:flex;padding:6px 8px}.box input{flex:1;background:0;border:0;color:#fff;outline:0;padding:10px 14px;font-size:15px}.box button{background:#fff;color:#000;border:0;width:32px;height:32px;border-radius:50%;font-weight:900;cursor:pointer}.dots{display:flex;gap:4px}.dots i{width:6px;height:6px;background:#999;border-radius:50%;animation:d 1.2s infinite}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}@keyframes d{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}.tag{font-size:10px;color:#00ff88;border:1px solid #00ff88;padding:2px 6px;border-radius:10px;margin-bottom:6px;display:inline-block}@media(max-width:700px){.side{display:none}}</style>
+<title>XENA V10.1 Fixed Bar</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0f0f0f;color:#eee;font-family:system-ui;display:flex;height:100vh;overflow:hidden}.side{width:280px;background:#171717;padding:12px;display:flex;flex-direction:column;overflow:auto}.agent{padding:10px 12px;border-radius:10px;margin:4px 0;cursor:pointer;background:#252525;font-size:13px}.agent.active{background:linear-gradient(90deg,#6a00ff,#ff00a0);font-weight:700}.new{background:#2f2f2f;padding:10px;border-radius:10px;text-align:center;font-weight:700;cursor:pointer;margin-bottom:10px}.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}.top{padding:12px 16px;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;font-weight:900;flex-shrink:0}.vol{display:flex;gap:6px}.vol button{background:#252525;border:1px solid #333;color:#fff;padding:5px 10px;border-radius:16px;font-size:11px;cursor:pointer}.vol button.on{background:#fff;color:#000;font-weight:800}.chat{flex:1;overflow:auto;padding:18px;padding-bottom:90px;max-width:900px;margin:0 auto;width:100%}.msg{margin:16px 0;display:flex;gap:10px;line-height:1.8;font-size:14.5px}.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:11px}.u{background:#fff;color:#000}.x{background:linear-gradient(90deg,#00ff88,#6a00ff)}.b{flex:1;white-space:pre-wrap;word-break:break-word}.bar{position:fixed;bottom:0;left:0;right:0;background:#0f0f0f;border-top:1px solid #222;padding:10px 12px;z-index:100}@media(min-width:701px){.bar{left:280px}}@media(max-width:700px){.side{display:none}.bar{left:0}}.box{max-width:900px;margin:0 auto;background:#212121;border:1px solid #333;border-radius:24px;display:flex;padding:6px 8px}.box input{flex:1;background:0;border:0;color:#fff;outline:0;padding:10px 14px;font-size:16px}.box button{background:#fff;color:#000;border:0;width:36px;height:36px;border-radius:50%;font-weight:900;cursor:pointer;font-size:16px}.tag{font-size:10px;color:#00ff88;border:1px solid #00ff88;padding:2px 6px;border-radius:10px;margin-bottom:6px;display:inline-block}.dots{display:flex;gap:4px}.dots i{width:6px;height:6px;background:#999;border-radius:50%;animation:d 1.2s infinite}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}@keyframes d{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}</style>
 </head><body>
 <div class="side"><div class="new" onclick="location.reload()">+ New Knowledge</div>
 <div style="font-size:11px;color:#888;margin:8px 4px">SELECT AGENT:</div>
@@ -12,66 +12,40 @@
 <div class="agent" data-a="health">🧬 Health & Medicine</div>
 <div class="agent" data-a="essay">📝 Long Essay Generator (2000+ words)</div>
 <div class="agent" data-a="news">📰 Quick News & Current Affairs</div>
-<div style="margin-top:14px;font-size:11px;color:#666;line-height:1.6">XENA V10<br>By Dalton Kampala 🇺🇬<br>High Volume Text<br>Triple Brain Inside<br>Google + Meta + ChatGPT</div>
+<div style="margin-top:14px;font-size:11px;color:#666">XENA V10.1 FIXED<br>By Dalton 🇺🇬<br>Bar Always Visible</div>
 </div>
 <div class="main"><div class="top"><span>🔥 XENA V10 GLOBAL FACTORY</span><div class="vol"><button id="vQuick" class="on" onclick="setVol('quick')">QUICK</button><button id="vHigh" onclick="setVol('high')">HIGH VOLUME</button></div></div>
-<div class="chat" id="chat"><div class="msg"><div class="av x">X</div><div class="b"><span class="tag">🌍 GLOBAL AGENT READY • HIGH VOLUME MODE</span>
-Hello Dalton! V10 Factory ready! 🚀
+<div class="chat" id="chat"><div class="msg"><div class="av x">X</div><div class="b"><span class="tag">🌍 GLOBAL AGENT READY • BAR FIXED</span>
+Hello Dalton! V10.1 Factory ready! 🚀
 
-**I can now generate:**
+Typing bar is now FIXED at bottom - you will always see it!
+
+**I can generate:**
 - **Quick answers** - 100 words fast
-- **High Volume** - 2000+ words essays, books, guides
+- **High Volume** - 2000+ words
 
-**7 Conventional Agents:**
-🌍 Global Knowledge - anything in world
-🔬 Science - physics, AI, space, tech
-📜 History - wars, empires, cultures
-💼 Business - startups, money, marketing
-🧬 Health - medicine, biology
-📝 Long Essay - high volume 2000+ words
-📰 Current Affairs - news style
-
-**Try:**
-"Generate high volume guide about AI in 2026"
-"Essay about African empires 3000 words"
-"Explain quantum computing quick"
+**Try now - type below!**
 </div></div></div>
-<div class="bar"><div class="box"><input id="q" placeholder="Ask any topic... global knowledge factory..." onkeydown="if(event.key==='Enter')send()"><button onclick="send()">↑</button></div></div>
 </div>
+<div class="bar"><div class="box"><input id="q" placeholder="Type here... Ask any topic..." onkeydown="if(event.key==='Enter')send()"><button onclick="send()">↑</button></div></div>
 <script>
 const KEY="AQ.Ab8RN6IESzisKBOl60soehyUX7nltU1TlIjUWc5fgJ-MEDNcCg";
 let curAgent="global", curVol="quick";
 document.querySelectorAll('.agent').forEach(el=>el.onclick=()=>{document.querySelectorAll('.agent').forEach(a=>a.classList.remove('active'));el.classList.add('active');curAgent=el.dataset.a;});
 function setVol(v){curVol=v;document.getElementById('vQuick').className=v==='quick'?'on':'';document.getElementById('vHigh').className=v==='high'?'on':'';}
-
 function buildPrompt(q){
-let base="You are XENA Global Factory built by Dalton. You are Meta AI + ChatGPT combined.";
-let vol = curVol==='high'? "Generate HIGH VOLUME long text: 1500-2500 words, detailed, with headings, subheadings, bullet points, examples, conclusion. Be comprehensive like a book chapter." : "Generate QUICK concise answer: 120-200 words, clear, with **bold headings** and - bullets.";
-let agents={
-global: "Agent: Global General Knowledge. Cover any topic worldwide, accurate, up-to-date.",
-science: "Agent: Science & Technology Expert. Explain with mechanisms, formulas, examples, latest 2026 tech.",
-history: "Agent: Historian. Give dates, causes, effects, timeline, key figures.",
-business: "Agent: Business Consultant. Give strategies, numbers, steps, case studies.",
-health: "Agent: Medical Expert. Give causes, symptoms, treatments, prevention (educational only).",
-essay: "Agent: Professional Essay Writer. Structure: Introduction, 5-7 detailed body sections with headings, conclusion, references style. MUST be 1800+ words high volume.",
-news: "Agent: News Reporter. Give headline, summary, 5W1H, background, impact, what next."
-};
-return base+"\n"+agents[curAgent]+"\n"+vol+"\n\nUser Question: "+q;
+let base="You are XENA Global Factory built by Dalton.";
+let vol = curVol==='high'? "Generate HIGH VOLUME 1500-2500 words, detailed headings, bullets, examples, conclusion." : "Generate QUICK 120-200 words, with **bold headings** and - bullets.";
+let agents={global:"Agent: Global Knowledge. Accurate worldwide.",science:"Agent: Science & Tech Expert.",history:"Agent: Historian with dates.",business:"Agent: Business Consultant.",health:"Agent: Medical Expert educational.",essay:"Agent: Essay Writer MUST 1800+ words.",news:"Agent: News Reporter."};
+return base+"\n"+agents[curAgent]+"\n"+vol+"\n\nQ: "+q;
 }
-
 async function send(){
 let inp=document.getElementById('q'),t=inp.value.trim();if(!t)return;
 let ch=document.getElementById('chat');ch.innerHTML+=`<div class="msg"><div class="av u">D</div><div class="b">${t}</div></div>`;inp.value='';
-let row=document.createElement('div');row.className='msg';row.innerHTML=`<div class="av x">X</div><div class="b"><span class="tag">🧠 ${curAgent.toUpperCase()} • ${curVol.toUpperCase()} • 3 BRAINS</span><div class="dots"><i></i><i></i><i></i> Generating high volume...</div></div>`;ch.appendChild(row);ch.scrollTop=ch.scrollHeight;
+let row=document.createElement('div');row.className='msg';row.innerHTML=`<div class="av x">X</div><div class="b"><span class="tag">🧠 ${curAgent.toUpperCase()} • ${curVol.toUpperCase()}</span><div class="dots"><i></i><i></i><i></i> Generating...</div></div>`;ch.appendChild(row);ch.scrollTop=ch.scrollHeight;
 let out=row.querySelector('.b');let prompt=buildPrompt(t);
-try{
-let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
-let j=await r.json();let txt=j.candidates?.[0]?.content?.parts?.[0]?.text;if(txt&&txt.length>20){out.innerHTML=`<span class="tag">✅ Google Gemini • ${txt.length} chars</span>`+txt;ch.scrollTop=ch.scrollHeight;return;}
-throw 0;
-}catch(e){
-try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t2=await r2.text();out.innerHTML=`<span class="tag">✅ Meta + ChatGPT Factory • ${t2.length} chars</span>`+t2;
-}catch(e2){out.innerHTML=`<span class="tag">⚠️ Offline Factory</span>XENA Factory: "${t}"\n\n**High volume guide:**\n- This is offline fallback\n- Reconnecting brains\n- Try again\n\nAgent: ${curAgent} | Mode: ${curVol}`;}
-}
+try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});let j=await r.json();let txt=j.candidates?.[0]?.content?.parts?.[0]?.text;if(txt&&txt.length>20){out.innerHTML=`<span class="tag">✅ Gemini • ${txt.length} chars</span>`+txt;ch.scrollTop=ch.scrollHeight;return;}throw 0;}catch(e){
+try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t2=await r2.text();out.innerHTML=`<span class="tag">✅ Meta+ChatGPT • ${t2.length} chars</span>`+t2;}catch(e2){out.innerHTML=`<span class="tag">⚠️ Offline</span>Try again - ${t}`;}}
 ch.scrollTop=ch.scrollHeight;
 }
 </script>
