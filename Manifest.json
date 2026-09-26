@@ -1,0 +1,16 @@
+{
+  "name": "XENA V13 GOD MODE - By Dalton",
+  "short_name": "XENA AI",
+  "description": "Math Solver + Photo Editor + Video Editor + Global AI",
+  "start_url": "/XENA-AI/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#6a00ff",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
