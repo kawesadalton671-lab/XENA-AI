@@ -1,52 +1,100 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XENA V10.1 Fixed Bar</title>
-<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0f0f0f;color:#eee;font-family:system-ui;display:flex;height:100vh;overflow:hidden}.side{width:280px;background:#171717;padding:12px;display:flex;flex-direction:column;overflow:auto}.agent{padding:10px 12px;border-radius:10px;margin:4px 0;cursor:pointer;background:#252525;font-size:13px}.agent.active{background:linear-gradient(90deg,#6a00ff,#ff00a0);font-weight:700}.new{background:#2f2f2f;padding:10px;border-radius:10px;text-align:center;font-weight:700;cursor:pointer;margin-bottom:10px}.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}.top{padding:12px 16px;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;font-weight:900;flex-shrink:0}.vol{display:flex;gap:6px}.vol button{background:#252525;border:1px solid #333;color:#fff;padding:5px 10px;border-radius:16px;font-size:11px;cursor:pointer}.vol button.on{background:#fff;color:#000;font-weight:800}.chat{flex:1;overflow:auto;padding:18px;padding-bottom:90px;max-width:900px;margin:0 auto;width:100%}.msg{margin:16px 0;display:flex;gap:10px;line-height:1.8;font-size:14.5px}.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:11px}.u{background:#fff;color:#000}.x{background:linear-gradient(90deg,#00ff88,#6a00ff)}.b{flex:1;white-space:pre-wrap;word-break:break-word}.bar{position:fixed;bottom:0;left:0;right:0;background:#0f0f0f;border-top:1px solid #222;padding:10px 12px;z-index:100}@media(min-width:701px){.bar{left:280px}}@media(max-width:700px){.side{display:none}.bar{left:0}}.box{max-width:900px;margin:0 auto;background:#212121;border:1px solid #333;border-radius:24px;display:flex;padding:6px 8px}.box input{flex:1;background:0;border:0;color:#fff;outline:0;padding:10px 14px;font-size:16px}.box button{background:#fff;color:#000;border:0;width:36px;height:36px;border-radius:50%;font-weight:900;cursor:pointer;font-size:16px}.tag{font-size:10px;color:#00ff88;border:1px solid #00ff88;padding:2px 6px;border-radius:10px;margin-bottom:6px;display:inline-block}.dots{display:flex;gap:4px}.dots i{width:6px;height:6px;background:#999;border-radius:50%;animation:d 1.2s infinite}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}@keyframes d{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}</style>
+<title>XENA V11 Math Solver</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjs@11/lib/browser/math.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0f0f0f;color:#eee;font-family:system-ui;display:flex;height:100vh;overflow:hidden}.side{width:300px;background:#171717;padding:12px;display:flex;flex-direction:column;overflow:auto}.agent{padding:10px 12px;border-radius:10px;margin:4px 0;cursor:pointer;background:#252525;font-size:13px;border:1px solid #333}.agent.active{background:linear-gradient(90deg,#6a00ff,#00ff88);color:#fff;font-weight:700;border-color:#00ff88}.new{background:#2f2f2f;padding:10px;border-radius:10px;text-align:center;font-weight:700;cursor:pointer;margin-bottom:10px}.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}.top{padding:12px 16px;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;font-weight:900;flex-shrink:0}.vol{display:flex;gap:6px}.vol button{background:#252525;border:1px solid #333;color:#fff;padding:5px 10px;border-radius:16px;font-size:11px;cursor:pointer}.vol button.on{background:#fff;color:#000;font-weight:800}.chat{flex:1;overflow:auto;padding:18px;padding-bottom:100px;max-width:950px;margin:0 auto;width:100%}.msg{margin:18px 0;display:flex;gap:10px;line-height:1.8;font-size:14.5px}.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:11px}.u{background:#fff;color:#000}.x{background:linear-gradient(90deg,#00ff88,#6a00ff)}.b{flex:1;white-space:pre-wrap;word-break:break-word}.b pre{background:#1a1a1a;border:1px solid #333;padding:10px;border-radius:10px;overflow:auto;margin:8px 0}.bar{position:fixed;bottom:0;left:0;right:0;background:#0f0f0f;border-top:1px solid #222;padding:10px 12px;z-index:100}@media(min-width:701px){.bar{left:300px}}@media(max-width:700px){.side{display:none}.bar{left:0}}.box{max-width:950px;margin:0 auto;background:#212121;border:1px solid #333;border-radius:24px;display:flex;padding:6px 8px}.box input{flex:1;background:0;border:0;color:#fff;outline:0;padding:12px 14px;font-size:16px}.box button{background:#fff;color:#000;border:0;width:38px;height:38px;border-radius:50%;font-weight:900;cursor:pointer;font-size:18px}.tag{font-size:10px;color:#00ff88;border:1px solid #00ff88;padding:2px 8px;border-radius:12px;margin-bottom:6px;display:inline-block}.mathBox{background:linear-gradient(90deg,#171717,#1f2f1f);border:1px solid #00ff88;border-radius:12px;padding:12px;margin:10px 0}.step{border-left:3px solid #6a00ff;padding-left:10px;margin:10px 0}</style>
 </head><body>
-<div class="side"><div class="new" onclick="location.reload()">+ New Knowledge</div>
-<div style="font-size:11px;color:#888;margin:8px 4px">SELECT AGENT:</div>
-<div class="agent active" data-a="global">🌍 Global General Knowledge</div>
-<div class="agent" data-a="science">🔬 Science & Tech Factory</div>
-<div class="agent" data-a="history">📜 History & Culture</div>
-<div class="agent" data-a="business">💼 Business & Finance</div>
-<div class="agent" data-a="health">🧬 Health & Medicine</div>
-<div class="agent" data-a="essay">📝 Long Essay Generator (2000+ words)</div>
-<div class="agent" data-a="news">📰 Quick News & Current Affairs</div>
-<div style="margin-top:14px;font-size:11px;color:#666">XENA V10.1 FIXED<br>By Dalton 🇺🇬<br>Bar Always Visible</div>
+<div class="side"><div class="new" onclick="location.reload()">+ New Problem</div>
+<div style="font-size:11px;color:#888;margin:8px 4px">MATH & SCIENCE SOLVER:</div>
+<div class="agent active" data-a="math">🧮 Math Solver - Step by Step</div>
+<div class="agent" data-a="calc">🔢 Quick Calculator</div>
+<div class="agent" data-a="physics">⚛️ Physics Problems</div>
+<div class="agent" data-a="chemistry">🧪 Chemistry Solver</div>
+<div class="agent" data-a="science">🔬 Science Explainer</div>
+<div class="agent" data-a="essay">📝 Essay + High Volume</div>
+<div class="agent" data-a="global">🌍 Global Knowledge</div>
+<div style="margin-top:12px;font-size:11px;color:#666;line-height:1.6">XENA V11<br>By Dalton 🇺🇬<br>Math: x^2, √, ∫, ∑<br>LaTeX + Steps<br>Try: Solve 2x+5=15</div>
 </div>
-<div class="main"><div class="top"><span>🔥 XENA V10 GLOBAL FACTORY</span><div class="vol"><button id="vQuick" class="on" onclick="setVol('quick')">QUICK</button><button id="vHigh" onclick="setVol('high')">HIGH VOLUME</button></div></div>
-<div class="chat" id="chat"><div class="msg"><div class="av x">X</div><div class="b"><span class="tag">🌍 GLOBAL AGENT READY • BAR FIXED</span>
-Hello Dalton! V10.1 Factory ready! 🚀
+<div class="main"><div class="top"><span>🧮 XENA V11 MATH GENIUS</span><div class="vol"><button id="vQuick" class="on" onclick="setVol('quick')">QUICK</button><button id="vHigh" onclick="setVol('high')">STEPS</button></div></div>
+<div class="chat" id="chat"><div class="msg"><div class="av x">X</div><div class="b"><span class="tag">🧮 MATH SOLVER READY • V11</span>
+Hello Dalton! Math & Science Solver is LIVE! 🚀
 
-Typing bar is now FIXED at bottom - you will always see it!
+**I can solve:**
 
-**I can generate:**
-- **Quick answers** - 100 words fast
-- **High Volume** - 2000+ words
+🧮 **Math:**
+- `Solve 2x + 5 = 15`
+- `Factor x^2 -5x +6`
+- `Derivative of x^3 + 2x`
+- `Integrate x^2 dx`
+- `Solve system: x+y=10, x-y=2`
 
-**Try now - type below!**
+🔢 **Quick Calc:** Type any expression `12*45/3 + sqrt(16)`
+
+⚛️ **Physics:** `A car accelerates 0-100 in 5s, find force`
+🧪 **Chemistry:** `Balance H2 + O2 -> H2O`
+
+**NEW:** Step-by-step + LaTeX formulas + final answer boxed!
+
+Try below 👇 Type a math problem!
 </div></div></div>
 </div>
-<div class="bar"><div class="box"><input id="q" placeholder="Type here... Ask any topic..." onkeydown="if(event.key==='Enter')send()"><button onclick="send()">↑</button></div></div>
+<div class="bar"><div class="box"><input id="q" placeholder="Type math problem... e.g. Solve 3x^2+5x-2=0" onkeydown="if(event.key==='Enter')send()"><button onclick="send()">↑</button></div></div>
 <script>
 const KEY="AQ.Ab8RN6IESzisKBOl60soehyUX7nltU1TlIjUWc5fgJ-MEDNcCg";
-let curAgent="global", curVol="quick";
+let curAgent="math", curVol="high";
 document.querySelectorAll('.agent').forEach(el=>el.onclick=()=>{document.querySelectorAll('.agent').forEach(a=>a.classList.remove('active'));el.classList.add('active');curAgent=el.dataset.a;});
 function setVol(v){curVol=v;document.getElementById('vQuick').className=v==='quick'?'on':'';document.getElementById('vHigh').className=v==='high'?'on':'';}
-function buildPrompt(q){
-let base="You are XENA Global Factory built by Dalton.";
-let vol = curVol==='high'? "Generate HIGH VOLUME 1500-2500 words, detailed headings, bullets, examples, conclusion." : "Generate QUICK 120-200 words, with **bold headings** and - bullets.";
-let agents={global:"Agent: Global Knowledge. Accurate worldwide.",science:"Agent: Science & Tech Expert.",history:"Agent: Historian with dates.",business:"Agent: Business Consultant.",health:"Agent: Medical Expert educational.",essay:"Agent: Essay Writer MUST 1800+ words.",news:"Agent: News Reporter."};
-return base+"\n"+agents[curAgent]+"\n"+vol+"\n\nQ: "+q;
+
+function tryQuickCalc(expr){
+try{
+let clean=expr.replace(/x/g,'*').replace(/÷/g,'/').replace(/×/g,'*');
+let res=math.evaluate(clean);
+if(typeof res==='number' &&!isNaN(res)) return res;
+}catch(e){}
+return null;
 }
+
+function buildPrompt(q){
+let base="You are XENA V11 Math & Science Genius by Dalton. Solve with extreme detail.";
+let mode = curVol==='high'? "MODE: DETAILED STEP-BY-STEP: Show Step 1, Step 2... with LaTeX formulas using $...$ for inline and $$...$$ for block. Explain each step simply. Box final answer with **Final Answer:...**. Use KaTeX syntax." : "MODE: QUICK ANSWER: Give direct answer with formula and 2 line explanation.";
+let agents={
+math:"Agent: Math Problem Solver. Solve algebraically, show working, check answer, LaTeX. If quadratic, show discriminant. If equation, isolate x.",
+calc:"Agent: Calculator. Evaluate quickly and show result.",
+physics:"Agent: Physics Solver. Use formulas F=ma, v=u+at, E=mc^2 etc. Show given, formula, substitution, answer with units.",
+chemistry:"Agent: Chemistry Solver. Balance equations, moles, molar mass, explain.",
+science:"Agent: Science Explainer with diagrams described.",
+essay:"Agent: Essay 1500 words.",
+global:"Agent: Global Knowledge."
+};
+return base+"\n"+agents[curAgent]+"\n"+mode+"\n\nProblem: "+q+"\n\nUse LaTeX: $x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$ style";
+}
+
 async function send(){
 let inp=document.getElementById('q'),t=inp.value.trim();if(!t)return;
 let ch=document.getElementById('chat');ch.innerHTML+=`<div class="msg"><div class="av u">D</div><div class="b">${t}</div></div>`;inp.value='';
-let row=document.createElement('div');row.className='msg';row.innerHTML=`<div class="av x">X</div><div class="b"><span class="tag">🧠 ${curAgent.toUpperCase()} • ${curVol.toUpperCase()}</span><div class="dots"><i></i><i></i><i></i> Generating...</div></div>`;ch.appendChild(row);ch.scrollTop=ch.scrollHeight;
-let out=row.querySelector('.b');let prompt=buildPrompt(t);
-try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});let j=await r.json();let txt=j.candidates?.[0]?.content?.parts?.[0]?.text;if(txt&&txt.length>20){out.innerHTML=`<span class="tag">✅ Gemini • ${txt.length} chars</span>`+txt;ch.scrollTop=ch.scrollHeight;return;}throw 0;}catch(e){
-try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t2=await r2.text();out.innerHTML=`<span class="tag">✅ Meta+ChatGPT • ${t2.length} chars</span>`+t2;}catch(e2){out.innerHTML=`<span class="tag">⚠️ Offline</span>Try again - ${t}`;}}
+let row=document.createElement('div');row.className='msg';row.innerHTML=`<div class="av x">X</div><div class="b"><span class="tag">🧮 ${curAgent.toUpperCase()} • CALCULATING</span><div style="color:#00ff88">Solving... $x =...$</div></div>`;ch.appendChild(row);ch.scrollTop=ch.scrollHeight;
+let out=row.querySelector('.b');
+
+// quick local calc first
+let quick=tryQuickCalc(t);
+let extraQuick = quick!==null? `\n\n[LOCAL CALC CHECK: ${quick}]\n` : "";
+
+let prompt=buildPrompt(t)+extraQuick;
+try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});let j=await r.json();let txt=j.candidates?.[0]?.content?.parts?.[0]?.text;if(txt&&txt.length>20){out.innerHTML=`<span class="tag">✅ Math Brain • Gemini + LaTeX</span><div class="mathBox">${txt}</div>`;renderMath(out);ch.scrollTop=ch.scrollHeight;return;}throw 0;}catch(e){
+try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t2=await r2.text();out.innerHTML=`<span class="tag">✅ Science Brain • Meta</span><div class="mathBox">${t2}${quick!==null?`<br><b>Quick Check = ${quick}</b>`:''}</div>`;renderMath(out);}catch(e2){out.innerHTML=`<span class="tag">⚠️ Offline</span><div class="mathBox">Local calc result: <b>${quick!==null?quick:'Could not parse'}</b><br>Reconnecting brains for ${t}</div>`;}}
 ch.scrollTop=ch.scrollHeight;
+}
+
+function renderMath(el){
+// very light $...$ to KaTeX render attempt
+try{
+let html=el.innerHTML;
+html=html.replace(/\$\$([^$]+)\$\$/g,(m,expr)=>{try{return katex.renderToString(expr,{displayMode:true,throwOnError:false})}catch{return m}});
+html=html.replace(/\$([^$]+)\$/g,(m,expr)=>{try{return katex.renderToString(expr,{displayMode:false,throwOnError:false})}catch{return m}});
+el.innerHTML=html;
+}catch(e){}
 }
 </script>
 </body></html>
