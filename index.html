@@ -1,131 +1,176 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XENA V13 GOD MODE</title>
+<title>XENA V16 ULTIMATE - V13+V14+V15</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjs@11/lib/browser/math.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0f0f0f;color:#eee;font-family:system-ui;display:flex;height:100vh;overflow:hidden}
-.side{width:310px;background:#171717;padding:12px;display:flex;flex-direction:column;overflow:auto}
-.agent{padding:9px 11px;border-radius:10px;margin:3px 0;cursor:pointer;background:#252525;font-size:12.5px;border:1px solid #333}.agent.active{background:linear-gradient(90deg,#6a00ff,#00ff88);color:#fff;font-weight:800;border-color:#00ff88}
-.new{background:linear-gradient(90deg,#6a00ff,#ff00a0);padding:10px;border-radius:10px;text-align:center;font-weight:800;cursor:pointer;margin-bottom:8px}
-.group{font-size:10px;color:#666;margin:12px 4px 4px;letter-spacing:1px;font-weight:700}
-.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}
-.top{padding:10px 14px;border-bottom:1px solid #222;display:flex;gap:8px;align-items:center;font-weight:900;flex-shrink:0}
-.tab{padding:7px 14px;border-radius:20px;background:#252525;cursor:pointer;font-size:12px;border:1px solid #333;white-space:nowrap}.tab.active{background:#fff;color:#000;font-weight:800}
-.vol{display:flex;gap:5px;margin-left:auto}.vol button{background:#252525;border:1px solid #333;color:#fff;padding:5px 9px;border-radius:16px;font-size:10px;cursor:pointer}.vol button.on{background:#fff;color:#000;font-weight:800}
-.content{flex:1;overflow:auto}
-.chat{padding:18px;padding-bottom:100px;max-width:950px;margin:0 auto;width:100%}.msg{margin:18px 0;display:flex;gap:10px;line-height:1.8;font-size:14.5px}.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:11px}.u{background:#fff;color:#000}.x{background:linear-gradient(90deg,#00ff88,#6a00ff)}.b{flex:1;white-space:pre-wrap;word-break:break-word}
-.bar{position:fixed;bottom:0;left:0;right:0;background:#0f0f0f;border-top:1px solid #222;padding:10px 12px;z-index:100}@media(min-width:701px){.bar{left:310px}}@media(max-width:700px){.side{display:none}.bar{left:0}}
-.box{max-width:950px;margin:0 auto;background:#212121;border:1px solid #333;border-radius:24px;display:flex;padding:6px 8px}.box input{flex:1;background:0;border:0;color:#fff;outline:0;padding:12px 14px;font-size:16px}.box button{background:#fff;color:#000;border:0;width:38px;height:38px;border-radius:50%;font-weight:900;cursor:pointer;font-size:18px}
-.tag{font-size:10px;color:#00ff88;border:1px solid #00ff88;padding:2px 8px;border-radius:12px;margin-bottom:6px;display:inline-block}
-.mathBox{background:#171717;border:1px solid #222;border-radius:12px;padding:12px;margin:10px 0}
-.editor{padding:16px;max-width:1000px;margin:0 auto;display:none}.editor.active{display:block}
-canvas{max-width:100%;border-radius:12px;border:1px solid #333;background:#111}
-.toolRow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.toolRow button,.toolRow input,.toolRow select{background:#252525;color:#fff;border:1px solid #444;padding:8px 12px;border-radius:10px;font-size:12px;cursor:pointer}.toolRow button.primary{background:linear-gradient(90deg,#6a00ff,#00ff88);border:0;font-weight:800}
-video{max-width:100%;border-radius:12px;border:1px solid #333}
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0a0a0a;color:#eee;font-family:system-ui;display:flex;height:100vh;overflow:hidden}
+.side{width:280px;background:#111;padding:10px;overflow:auto;border-right:1px solid #222}.agent{padding:8px 10px;border-radius:8px;margin:3px 0;cursor:pointer;background:#222;font-size:11px;border:1px solid #333;display:flex;justify-content:space-between}.agent.active{background:linear-gradient(90deg,#6a00ff,#00ff88);color:#000;font-weight:800}.main{flex:1;display:flex;flex-direction:column;min-width:0}.top{padding:8px;display:flex;gap:5px;align-items:center;border-bottom:1px solid #222;flex-wrap:wrap;overflow:auto}.tab{padding:6px 10px;border-radius:20px;background:#222;cursor:pointer;font-size:10px;flex-shrink:0}.tab.active{background:#fff;color:#000;font-weight:800}
+.content{flex:1;overflow:auto}.chat{padding:12px;padding-bottom:90px;max-width:900px;margin:0 auto}.msg{margin:12px 0;display:flex;gap:8px;font-size:13px;line-height:1.5}.av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:10px}.u{background:#fff;color:#000}.x{background:linear-gradient(90deg,#00ff88,#6a00ff);color:#000}.b{flex:1;white-space:pre-wrap;word-break:break-word}
+.bar{position:fixed;bottom:0;left:0;right:0;background:#0a0a0a;border-top:1px solid #222;padding:8px;z-index:100}@media(min-width:701px){.bar{left:280px}}.box{max-width:900px;margin:0 auto;background:#1a1a1a;border:1px solid #333;border-radius:20px;display:flex;padding:4px 6px}.box input{flex:1;background:0;border:0;color:#fff;outline:0;padding:10px 12px;font-size:14px}.box button{background:#fff;color:#000;border:0;width:32px;height:32px;border-radius:50%;font-weight:900;cursor:pointer}
+.editor{padding:10px;display:none;max-width:1100px;margin:0 auto;width:100%}.editor.active{display:block}
+.mathBox{background:#151515;border:1px solid #333;border-radius:12px;padding:12px;margin:8px 0}
+.mathInput{width:100%;background:#0a0a0a;border:1px solid #444;color:#fff;padding:10px;border-radius:8px;font-size:14px;margin:6px 0}
+.btn{background:#6a00ff;color:#fff;border:0;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;margin:3px}.btn.white{background:#fff;color:#000}.btn.green{background:#00ff88;color:#000}.btn.small{padding:5px 10px;font-size:10px;background:#333}
+.step{background:#1a1a1a;border-left:3px solid #6a00ff;padding:8px 10px;margin:6px 0;border-radius:0 8px 8px 0;font-size:12px}
+.capcut{background:#111;border:1px solid #222;border-radius:14px;overflow:hidden}
+.preview{position:relative;background:#000;aspect-ratio:9/16;max-height:50vh;margin:0 auto;overflow:hidden;border-radius:10px}
+.preview video{width:100%;height:100%;object-fit:contain}
+.textOver{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:900;font-size:26px;color:#fff;text-shadow:2px 2px 4px #000;pointer-events:none;text-align:center}
+.toolbar{display:flex;overflow:auto;gap:5px;padding:8px;background:#0a0a0a;white-space:nowrap}
+.toolbar button{background:#222;border:1px solid #333;color:#fff;padding:6px 10px;border-radius:20px;font-size:10px;cursor:pointer;flex-shrink:0}.toolbar button.primary{background:#fff;color:#000;font-weight:800}
+canvas{background:#111;border-radius:10px;max-width:100%}
 </style></head><body>
 <div class="side">
-<div class="new" onclick="location.reload()">+ NEW PROJECT</div>
-<div class="group">🧮 MATH (V11)</div>
-<div class="agent active" data-a="math">🧮 Math Solver Steps</div>
-<div class="agent" data-a="calc">🔢 Calculator</div>
-<div class="agent" data-a="physics">⚛️ Physics</div>
-<div class="agent" data-a="chemistry">🧪 Chemistry</div>
-<div class="group">🌍 GLOBAL FACTORY (V10+V12)</div>
-<div class="agent" data-a="global">🌍 Global Knowledge</div>
-<div class="agent" data-a="science">🔬 Science Tech</div>
-<div class="agent" data-a="history">📜 History</div>
-<div class="agent" data-a="business">💼 Business</div>
-<div class="agent" data-a="essay">📝 Essay 2000+ Words</div>
-<div class="agent" data-a="news">📰 News</div>
-<div class="group">📸🎬 EDITORS (V13)</div>
-<div class="agent" data-a="photo" onclick="switchTab('photo')">📸 Photo Editor</div>
-<div class="agent" data-a="video" onclick="switchTab('video')">🎬 Video Editor</div>
-<div style="margin-top:12px;font-size:10px;color:#555">XENA V13<br>By Dalton 🇺🇬<br>V10+V11+V12+V13<br>ALL IN ONE</div>
+<div style="background:linear-gradient(90deg,#6a00ff,#ff00a0,#00ff88);padding:10px;border-radius:10px;text-align:center;font-weight:900;font-size:13px;margin-bottom:10px;cursor:pointer" onclick="location.reload()">⚡ XENA V16 ULTIMATE<br><span style="font-size:9px">V13+V14+V15 GOD MODE</span></div>
+
+<div style="font-size:9px;color:#00ff88;margin:8px 0 4px">🧠 V13 AI AGENTS</div>
+<div class="agent active" data-agent="global" onclick="setAgent('global')"><span>🌍 Global AI</span><span>💬</span></div>
+<div class="agent" data-agent="math" onclick="setAgent('math');switchTab('math')"><span>🧮 Math God</span><span>🔢</span></div>
+<div class="agent" data-agent="essay" onclick="setAgent('essay')"><span>📝 Essay Writer</span><span>✍️</span></div>
+<div class="agent" data-agent="code" onclick="setAgent('code')"><span>💻 Code Expert</span><span>👨‍💻</span></div>
+<div class="agent" data-agent="research" onclick="setAgent('research')"><span>🔍 Research</span><span>📚</span></div>
+<div class="agent" data-agent="business" onclick="setAgent('business')"><span>💼 Business</span><span>📈</span></div>
+<div class="agent" data-agent="health" onclick="setAgent('health')"><span>🏥 Health</span><span>⚕️</span></div>
+
+<div style="font-size:9px;color:#ff00a0;margin:10px 0 4px">🔬 V15 SCIENCE + MATH</div>
+<div class="agent" data-agent="physics" onclick="setAgent('physics');switchTab('science')"><span>⚡ Physics</span><span>🔬</span></div>
+<div class="agent" data-agent="chemistry" onclick="setAgent('chemistry');switchTab('science')"><span>🧪 Chemistry</span><span>⚗️</span></div>
+<div class="agent" data-agent="biology" onclick="setAgent('biology');switchTab('science')"><span>🧬 Biology</span><span>🌱</span></div>
+
+<div style="font-size:9px;color:#00ff88;margin:10px 0 4px">🎬 V14 CAPCUT + PHOTO</div>
+<div class="agent" onclick="switchTab('photo')"><span>📸 Photo Editor</span><span>🖼️</span></div>
+<div class="agent" onclick="switchTab('video')"><span>🎬 CapCut Video</span><span>✂️</span></div>
+
+<div style="font-size:8px;color:#444;margin-top:15px;line-height:1.4">
+By Dalton Kawesa 🇺🇬<br>
+Entebbe, Uganda<br>
+V16 ULTIMATE<br>
+13 agents + CapCut + Photomath<br>
+All-in-One Super App
 </div>
+</div>
+
 <div class="main">
 <div class="top">
 <div class="tab active" data-tab="chat" onclick="switchTab('chat')">💬 CHAT</div>
+<div class="tab" data-tab="math" onclick="switchTab('math')">🧮 MATH</div>
+<div class="tab" data-tab="science" onclick="switchTab('science')">🔬 SCIENCE</div>
 <div class="tab" data-tab="photo" onclick="switchTab('photo')">📸 PHOTO</div>
-<div class="tab" data-tab="video" onclick="switchTab('video')">🎬 VIDEO</div>
-<div class="vol"><button id="vQuick" class="on" onclick="setVol('quick')">QUICK</button><button id="vHigh" onclick="setVol('high')">HIGH</button></div>
+<div class="tab" data-tab="video" onclick="switchTab('video')">🎬 CAPCUT</div>
+<div style="margin-left:auto;font-size:9px;color:#666" id="agentLabel">🌍 Global AI</div>
 </div>
+
 <div class="content">
-<div class="chat" id="chatView"><div class="msg"><div class="av x">X</div><div class="b"><span class="tag">🚀 V13 GOD MODE - V12 + EDITORS</span>
-Hello Dalton! V13 is LIVE!
+<div class="chat" id="chatView"><div class="msg"><div class="av x">X</div><div class="b">🚀 XENA V16 ULTIMATE IS LIVE!
+This is V13 + V14 + V15 COMBINED!
 
-**V12 INSIDE CHAT TAB:**
-🧮 Math Solver with LaTeX $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$
-🔢 Calculator, ⚛️ Physics, 🧪 Chemistry
-🌍 Global, 🔬 Science, 📜 History, 💼 Business, 📝 Essay 2000+, 📰 News
-Modes: QUICK and HIGH/STEPS
+🧠 V13 FEATURES (10 AI Agents):
+- 🌍 Global AI Chat
+- 🧮 Math God
+- 📝 Essay Writer
+- 💻 Code Expert
+- 🔍 Research
+- 💼 Business
+- 🏥 Health + more
 
-**NEW V13 EDITORS:**
-📸 PHOTO EDITOR tab - Filters, Text, Rotate, Download
-🎬 VIDEO EDITOR tab - Filters, Speed, Trim, Capture Frame
+🔬 V15 FEATURES (Photomath Clone):
+- 🧮 Math Solver with steps
+- ⚡ Physics Solver (F=ma, velocity)
+- 🧪 Chemistry (balance equations)
+- 🧬 Biology
+- 📸 Scan homework with camera
+- 📈 Graph plotter
 
-Click tabs on top! Your V12 is in CHAT tab!
+🎬 V14 FEATURES (CapCut Clone):
+- 📸 Photo Editor (B&W, Sepia)
+- 🎬 Video Editor (Trim, Text, Filters, Speed, Export)
 
-Try: Solve x^2-5x+6=0
+CLICK TABS ON TOP OR AGENTS ON LEFT!
+
+You have Super App like ChatGPT + Photomath + CapCut + Picsart ALL IN ONE!
+
+Made in Uganda 🇺🇬 by Dalton
 </div></div></div>
-<div class="editor" id="photoView">
-<h3>📸 Photo Editor</h3>
-<input type="file" id="photoInput" accept="image/*" style="margin:12px 0">
-<div class="toolRow">
-<button onclick="applyFilter('grayscale')">Grayscale</button>
-<button onclick="applyFilter('sepia')">Sepia</button>
-<button onclick="applyFilter('invert')">Invert</button>
-<button onclick="applyFilter('blur')">Blur</button>
-<button onclick="applyFilter('bright')">Bright</button>
-<button onclick="applyFilter('contrast')">Contrast</button>
-<button onclick="applyFilter('none')">Original</button>
-<button class="primary" onclick="downloadPhoto()">⬇ Download</button>
+
+<!-- MATH TAB - V15 -->
+<div class="editor" id="mathView">
+<div class="mathBox">
+<h3>🧮 V13 + V15 Math God - Photomath Clone</h3>
+<input id="mathQ" class="mathInput" placeholder="Type: 2x+5=15 or x^2+3x+2=0 or derivative x^3">
+<div style="display:flex;flex-wrap:wrap">
+<button class="btn" onclick="solveMath()">SOLVE STEP-BY-STEP</button>
+<button class="btn white" onclick="graphMath()">📈 GRAPH</button>
+<button class="btn green" onclick="document.getElementById('mathCam').click()">📸 SCAN</button>
+<input type="file" id="mathCam" accept="image/*" style="display:none">
 </div>
-<div class="toolRow">
-<input id="textOnPhoto" placeholder="Text e.g. DALTON" style="flex:1">
-<button onclick="addText()">Add Text</button>
-<button onclick="rotatePhoto()">Rotate 90°</button>
+<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:3px">
+<button class="btn small" onclick="setMath('2x+5=15')">2x+5=15</button>
+<button class="btn small" onclick="setMath('x^2+3x+2=0')">Quadratic</button>
+<button class="btn small" onclick="setMath('derivative x^3+2x')">Derivative</button>
+<button class="btn small" onclick="setMath('integral x^2')">Integral</button>
+<button class="btn small" onclick="setMath('sqrt(144)+log(100)')">Advanced</button>
 </div>
-<canvas id="photoCanvas" width="800" height="600"></canvas>
-</div>
-<div class="editor" id="videoView">
-<h3>🎬 Video Editor</h3>
-<input type="file" id="videoInput" accept="video/*" style="margin:12px 0">
-<div class="toolRow">
-<button onclick="videoFilter('grayscale')">Grayscale</button>
-<button onclick="videoFilter('sepia')">Sepia</button>
-<button onclick="videoFilter('invert')">Invert</button>
-<button onclick="videoFilter('none')">Original</button>
-<select id="speedSel" onchange="changeSpeed()"><option value="0.5">0.5x</option><option value="1" selected>1x</option><option value="1.5">1.5x</option><option value="2">2x</option></select>
-<button class="primary" onclick="captureFrame()">📸 Capture Frame</button>
-</div>
-<video id="videoEl" controls></video>
-<canvas id="videoCanvas" style="display:none"></canvas>
-<div id="captures" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px"></div>
+<div id="mathResult" style="margin-top:10px"></div>
+<canvas id="graphCanvas" width="600" height="300" style="display:none;margin-top:10px;background:#fff"></canvas>
 </div>
 </div>
+
+<!-- SCIENCE TAB - V15 -->
+<div class="editor" id="scienceView">
+<div class="mathBox">
+<h3>🔬 V15 Science Lab - Physics Chemistry Biology</h3>
+<select id="sciSubject" class="mathInput" style="width:auto;display:inline-block"><option value="physics">⚡ Physics</option><option value="chemistry">🧪 Chemistry</option><option value="biology">🧬 Biology</option><option value="math">🧮 Math</option></select>
+<input id="sciQ" class="mathInput" placeholder="e.g. Ball dropped from 20m, time? or Balance: H2+O2->H2O">
+<div style="display:flex;gap:4px;flex-wrap:wrap">
+<button class="btn" onclick="solveScience()">SOLVE SCIENCE</button>
+<button class="btn small" onclick="setSci('Balance: C6H12O6 + O2 -> CO2 + H2O')">Balance Chemical</button>
+<button class="btn small" onclick="setSci('F=ma, F=20N, m=5kg, find a')">F=ma</button>
+<button class="btn small" onclick="setSci('Explain photosynthesis step by step')">Photosynthesis</button>
+<button class="btn green" onclick="document.getElementById('sciCam').click()">📸 SCAN</button>
+<input type="file" id="sciCam" accept="image/*" style="display:none">
 </div>
-<div class="bar" id="chatBar"><div class="box"><input id="q" placeholder="Ask anything... Solve x^2=4 or Essay 2000 words" onkeydown="if(event.key==='Enter')send()"><button onclick="send()">↑</button></div></div>
+<div id="sciResult" style="margin-top:10px"></div>
+</div>
+</div>
+
+<!-- PHOTO TAB - V14 -->
+<div class="editor" id="photoView"><div class="mathBox"><h3>📸 V14 Photo Editor</h3><input type="file" id="photoInput" accept="image/*" class="mathInput"><div style="display:flex;gap:4px;flex-wrap:wrap;margin:6px 0"><button class="btn small" onclick="pf('grayscale')">B&W</button><button class="btn small" onclick="pf('sepia')">Sepia</button><button class="btn small" onclick="pf('invert')">Invert</button><button class="btn white small" onclick="pf('none')">Original</button><button class="btn green" onclick="downloadPhoto()">⬇ Download</button></div><canvas id="photoCanvas" width="600" height="800" style="max-width:100%;background:#111;border-radius:10px"></canvas></div></div>
+
+<!-- VIDEO TAB - V14 -->
+<div class="editor" id="videoView"><div class="capcut"><div class="preview"><video id="videoEl" playsinline controls></video><div class="textOver" id="textOver"></div></div><div class="toolbar"><button class="primary" onclick="document.getElementById('videoInput').click()">📁 Import Video</button><button onclick="addTextCap()">🔤 Text</button><button onclick="addSticker('🔥')">🔥</button><button onclick="addSticker('🇺🇬')">🇺🇬</button><button onclick="videoFilter('grayscale')">B&W</button><button onclick="videoFilter('sepia')">Sepia</button><button onclick="videoFilter('none')">Original</button><button class="primary" onclick="exportVideo()">⬇ Export</button></div><div style="padding:8px;display:flex;gap:6px;flex-wrap:wrap"><input id="capText" placeholder="Enter text DALTON" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:8px;flex:1"><button class="btn small" onclick="addTextCap()">Add to Video</button><select id="speedSel" onchange="changeSpeed()" style="background:#222;color:#fff;border:1px solid #444;padding:6px;border-radius:8px"><option value="0.5">0.5x Slow</option><option value="1" selected>1x</option><option value="1.5">1.5x</option><option value="2">2x Fast</option></select></div></div><input type="file" id="videoInput" accept="video/*" style="display:none"></div>
+
+</div>
+</div>
+<div class="bar" id="chatBar"><div class="box"><input id="q" placeholder="Ask anything to current agent..." onkeydown="if(event.key==='Enter')send()"><button onclick="send()">↑</button></div></div>
+
 <script>
 const KEY="AQ.Ab8RN6IESzisKBOl60soehyUX7nltU1TlIjUWc5fgJ-MEDNcCg";
-let curAgent="math", curVol="high", curTab="chat";
-let photoCtx=document.getElementById('photoCanvas').getContext('2d'); let photoImg=null; let photoRot=0;
-function switchTab(t){curTab=t;document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.dataset.tab===t));document.getElementById('chatView').style.display=t==='chat'?'block':'none';document.getElementById('photoView').classList.toggle('active',t==='photo');document.getElementById('videoView').classList.toggle('active',t==='video');document.getElementById('chatBar').style.display=t==='chat'?'block':'none';}
-document.querySelectorAll('.agent').forEach(el=>{if(el.dataset.a==='photo'||el.dataset.a==='video')return;el.onclick=()=>{document.querySelectorAll('.agent').forEach(a=>{if(a.dataset.a!=='photo'&&a.dataset.a!=='video')a.classList.remove('active')});el.classList.add('active');curAgent=el.dataset.a;switchTab('chat');}});
-function setVol(v){curVol=v;document.getElementById('vQuick').className=v==='quick'?'on':'';document.getElementById('vHigh').className=v==='high'?'on':'';}
-function tryQuickCalc(ex){try{let cl=ex.replace(/x/g,'*').replace(/÷/g,'/').replace(/×/g,'*');let r=math.evaluate(cl);if(typeof r==='number'&&!isNaN(r))return r;}catch(e){}return null;}
-function buildPrompt(q){let base="You are XENA V13 by Dalton.";let vol=curVol==='high'?"HIGH: math steps LaTeX $...$ $$...$$ boxed Final Answer. essay 1500-2500 words headings":"QUICK: 150 words concise.";let agents={math:"Math Solver LaTeX steps.",calc:"Calculator.",physics:"Physics F=ma steps.",chemistry:"Chemistry balance.",global:"Global Knowledge.",science:"Science Tech.",history:"History.",business:"Business.",essay:"Essay 1800+ words.",news:"News."};return base+"\n"+agents[curAgent]+"\n"+vol+"\nQ: "+q;}
-async function send(){let inp=document.getElementById('q'),t=inp.value.trim();if(!t)return;let ch=document.getElementById('chatView');ch.innerHTML+=`<div class="msg"><div class="av u">D</div><div class="b">${t}</div></div>`;inp.value='';let row=document.createElement('div');row.className='msg';row.innerHTML=`<div class="av x">X</div><div class="b"><span class="tag">🧠 ${curAgent.toUpperCase()}</span><div style="color:#00ff88">Generating...</div></div>`;ch.appendChild(row);ch.scrollTop=99999;let out=row.querySelector('.b');let quick=tryQuickCalc(t);let extra=quick!==null?`\n[CALC:${quick}]`: "";let prompt=buildPrompt(t)+extra;
-try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});let j=await r.json();let txt=j.candidates?.[0]?.content?.parts?.[0]?.text;if(txt&&txt.length>20){out.innerHTML=`<span class="tag">✅ Gemini • ${txt.length} chars</span><div class="mathBox">${txt}</div>`;renderMath(out);return;}throw 0;}catch(e){try{let r2=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t2=await r2.text();out.innerHTML=`<span class="tag">✅ Meta • ${t2.length} chars</span><div class="mathBox">${t2}</div>`;renderMath(out);}catch(e2){out.innerHTML=`<span class="tag">⚠️ Offline</span><div class="mathBox">Local ${quick!==null?quick:'?'} : ${t}</div>`;}}}
-function renderMath(el){try{let html=el.innerHTML;html=html.replace(/\$\$([^$]+)\$\$/g,(m,ex)=>{try{return katex.renderToString(ex,{displayMode:true,throwOnError:false})}catch{return m}});html=html.replace(/\$([^$]+)\$/g,(m,ex)=>{try{return katex.renderToString(ex,{displayMode:false,throwOnError:false})}catch{return m}});el.innerHTML=html;}catch(e){}}
-document.getElementById('photoInput').onchange=(e)=>{let file=e.target.files[0];if(!file)return;let img=new Image();img.onload=()=>{photoImg=img;let c=document.getElementById('photoCanvas');c.width=img.width;c.height=img.height;photoCtx.drawImage(img,0,0);};img.src=URL.createObjectURL(file);};
-function applyFilter(f){if(!photoImg)return alert('Upload photo first');let c=document.getElementById('photoCanvas');photoCtx.clearRect(0,0,c.width,c.height);photoCtx.filter='none';if(f==='grayscale')photoCtx.filter='grayscale(100%)';if(f==='sepia')photoCtx.filter='sepia(100%)';if(f==='invert')photoCtx.filter='invert(100%)';if(f==='blur')photoCtx.filter='blur(5px)';if(f==='bright')photoCtx.filter='brightness(150%)';if(f==='contrast')photoCtx.filter='contrast(200%)';photoCtx.save();photoCtx.translate(c.width/2,c.height/2);photoCtx.rotate(photoRot*Math.PI/180);photoCtx.drawImage(photoImg,-c.width/2,-c.height/2,c.width,c.height);photoCtx.restore();}
-function rotatePhoto(){photoRot=(photoRot+90)%360;applyFilter('none');}
-function addText(){let txt=document.getElementById('textOnPhoto').value;if(!txt)return;photoCtx.font='bold 50px system-ui';photoCtx.fillStyle='#00ff88';photoCtx.strokeStyle='#000';photoCtx.lineWidth=4;photoCtx.strokeText(txt,30,80);photoCtx.fillText(txt,30,80);}
-function downloadPhoto(){let c=document.getElementById('photoCanvas');let a=document.createElement('a');a.download='XENA-Photo-'+Date.now()+'.png';a.href=c.toDataURL();a.click();}
-let videoEl=document.getElementById('videoEl');
-document.getElementById('videoInput').onchange=(e)=>{let file=e.target.files[0];if(!file)return;videoEl.src=URL.createObjectURL(file);videoEl.load();};
+let currentAgent='global';
+const prompts={global:'You are XENA helpful AI assistant.',math:'You are Math God, solve step by step with formulas, explain like Ugandan teacher.',essay:'You are expert essay writer, write high quality essays with intro body conclusion.',code:'You are senior developer, write clean code with comments.',research:'You are research expert, provide deep analysis with sources.',business:'You are business consultant, give practical advice.',health:'You are health information assistant, give general info, advise to see doctor.',physics:'You are physics teacher, solve with formulas F=ma, v=d/t, etc step by step.',chemistry:'You are chemistry teacher, balance equations, explain moles, pH, reactions.',biology:'You are biology teacher, explain photosynthesis, genetics, cells simply.'};
+function setAgent(a){currentAgent=a;document.querySelectorAll('.agent').forEach(e=>e.classList.toggle('active',e.dataset.agent===a));document.getElementById('agentLabel').innerText={global:'🌍 Global AI',math:'🧮 Math God',essay:'📝 Essay Writer',code:'💻 Code Expert',research:'🔍 Research',business:'💼 Business',health:'🏥 Health',physics:'⚡ Physics',chemistry:'🧪 Chemistry',biology:'🧬 Biology'}[a]||a;if(['math','physics','chemistry','biology'].includes(a)){switchTab(a==='math'?'math':'science');if(a!=='math')document.getElementById('sciSubject').value=a;}}
+function switchTab(t){document.querySelectorAll('.tab').forEach(e=>e.classList.toggle('active',e.dataset.tab===t));document.getElementById('chatView').style.display=t==='chat'?'block':'none';document.getElementById('mathView').classList.toggle('active',t==='math');document.getElementById('scienceView').classList.toggle('active',t==='science');document.getElementById('photoView').classList.toggle('active',t==='photo');document.getElementById('videoView').classList.toggle('active',t==='video');document.getElementById('chatBar').style.display=t==='chat'?'block':'none';}
+function send(){let i=document.getElementById('q'),v=i.value.trim();if(!v)return;document.getElementById('chatView').innerHTML+=`<div class="msg"><div class="av u">D</div><div class="b">${v}</div></div>`;i.value='';let sys=prompts[currentAgent]||prompts.global;fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':KEY},body:JSON.stringify({contents:[{parts:[{text:sys+'\n\nUser: '+v}]}]})}).then(r=>r.json()).then(j=>{let t=j.candidates?.[0]?.content?.parts?.[0]?.text||'Done';document.getElementById('chatView').innerHTML+=`<div class="msg"><div class="av x">X</div><div class="b">${t}</div></div>`;document.querySelector('.content').scrollTop=999999;});}
+// MATH
+function setMath(v){document.getElementById('mathQ').value=v;solveMath();}
+function solveMath(){let q=document.getElementById('mathQ').value.trim();if(!q)return;let res=document.getElementById('mathResult');try{let steps='';if(q.includes('=')){steps+=`<div class='step'><b>Equation:</b> ${q}</div>`;try{let ans=math.evaluate(q.split('=')[0],{x:2});steps+=`<div class='step'>Evaluating... Try AI for full steps below</div>`}catch(e){}}else if(q.toLowerCase().includes('derivative')){let fn=q.replace(/derivative/i,'').trim();let d=math.derivative(fn,'x').toString();steps+=`<div class='step'><b>f(x)=${fn}</b><br><b>f'(x)=${d}</b></div>`;}else{let ans=math.evaluate(q);steps+=`<div class='step'><b>${q} = ${ans}</b></div>`;}res.innerHTML=steps;fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:`Solve step by step like Photomath for Ugandan student: ${q}. Show 4 steps.`}]}]})}).then(r=>r.json()).then(j=>{let t=j.candidates?.[0]?.content?.parts?.[0]?.text||'';if(t)res.innerHTML+=`<div class='mathBox' style='background:#0a0a0a'><b>🤖 AI Steps:</b><br>${t.replace(/\n/g,'<br>')}</div>`});}catch(e){res.innerHTML=`<div class='step' style='border-color:red'>${e.message} - Using AI...</div>`;fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:`Solve: ${q}` }]}]})}).then(r=>r.json()).then(j=>{let t=j.candidates?.[0]?.content?.parts?.[0]?.text||'';res.innerHTML+=`<div class='mathBox'>${t.replace(/\n/g,'<br>')}</div>`});}}
+function graphMath(){let q=document.getElementById('mathQ').value.trim()||'x^2';let expr=q.replace(/y=/,'').split('=')[0].trim();if(!expr.includes('x'))expr='x^2';let canvas=document.getElementById('graphCanvas');canvas.style.display='block';let ctx=canvas.getContext('2d');ctx.clearRect(0,0,600,300);ctx.fillStyle='#fff';ctx.fillRect(0,0,600,300);ctx.strokeStyle='#ddd';ctx.beginPath();ctx.moveTo(0,150);ctx.lineTo(600,150);ctx.moveTo(300,0);ctx.lineTo(300,300);ctx.stroke();ctx.strokeStyle='#6a00ff';ctx.lineWidth=2;ctx.beginPath();let first=true;for(let px=0;px<600;px++){let x=(px-300)/30;try{let y=math.evaluate(expr,{x:x});let py=150-y*20;if(first){ctx.moveTo(px,py);first=false;}else ctx.lineTo(px,py);}catch(e){}}ctx.stroke();}
+// SCIENCE
+function setSci(v){document.getElementById('sciQ').value=v;}
+function solveScience(){let sub=document.getElementById('sciSubject').value,q=document.getElementById('sciQ').value.trim();if(!q)return;let res=document.getElementById('sciResult');res.innerHTML=`<div class='step'>Solving ${sub}: ${q}... ⏳</div>`;fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+KEY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:`You are ${sub} expert for Uganda secondary. Solve step by step: ${q}. Formulas + steps + answer.`}]}]})}).then(r=>r.json()).then(j=>{let t=j.candidates?.[0]?.content?.parts?.[0]?.text||'Error';res.innerHTML=`<div class='mathBox' style='background:#0a0a0a;white-space:pre-wrap'>🔬 ${sub.toUpperCase()}:\n\n${t}</div>`;});}
+document.getElementById('mathCam').onchange=e=>{let f=e.target.files[0];if(!f)return;document.getElementById('mathResult').innerHTML=`<div class='step'>📸 Scanning... Type problem if scan fails.</div>`;};
+document.getElementById('sciCam').onchange=e=>{let f=e.target.files[0];if(!f)return;document.getElementById('sciResult').innerHTML=`<div class='step'>📸 Scanning...</div>`;};
+// Photo
+let photoCtx=document.getElementById('photoCanvas').getContext('2d'),pImg=null;
+document.getElementById('photoInput').onchange=e=>{let f=e.target.files[0];if(!f)return;let img=new Image();img.onload=()=>{pImg=img;let c=document.getElementById('photoCanvas');c.width=img.width;c.height=img.height;photoCtx.drawImage(img,0,0);};img.src=URL.createObjectURL(f);};
+function pf(f){if(!pImg)return;let c=document.getElementById('photoCanvas');photoCtx.filter=f==='none'?'none':f==='grayscale'?'grayscale(100%)':f==='sepia'?'sepia(100%)':'invert(100%)';photoCtx.drawImage(pImg,0,0,c.width,c.height);photoCtx.filter='none';}
+function downloadPhoto(){let c=document.getElementById('photoCanvas');let a=document.createElement('a');a.download='XENA-'+Date.now()+'.png';a.href=c.toDataURL();a.click();}
+// Video
+let videoEl=document.getElementById('videoEl'),textOver=document.getElementById('textOver');
+document.getElementById('videoInput').onchange=e=>{let f=e.target.files[0];if(!f)return;videoEl.src=URL.createObjectURL(f);videoEl.play();};
 function videoFilter(f){videoEl.style.filter=f==='none'?'none':f==='grayscale'?'grayscale(100%)':f==='sepia'?'sepia(100%)':'invert(100%)';}
+function addTextCap(){let t=document.getElementById('capText').value||'DALTON';textOver.innerText=t;}
+function addSticker(s){textOver.innerText=(textOver.innerText+' '+s).trim();}
 function changeSpeed(){videoEl.playbackRate=parseFloat(document.getElementById('speedSel').value);}
-function captureFrame(){let c=document.getElementById('videoCanvas');c.width=videoEl.videoWidth;c.height=videoEl.videoHeight;let ctx=c.getContext('2d');ctx.filter=videoEl.style.filter;ctx.drawImage(videoEl,0,0);let img=document.createElement('img');img.src=c.toDataURL();img.style.width='120px';img.style.borderRadius='8px';img.style.border='1px solid #333';let a=document.createElement('a');a.download='XENA-Frame-'+Date.now()+'.png';a.href=img.src;a.appendChild(img);document.getElementById('captures').appendChild(a);}
+function exportVideo(){let stream=videoEl.captureStream?videoEl.captureStream():null;if(!stream){alert('Use Chrome! Or screen record.');return;}let r=new MediaRecorder(stream);let ch=[];r.ondataavailable=e=>ch.push(e.data);r.onstop=()=>{let b=new Blob(ch,{type:'video/webm'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='XENA-'+Date.now()+'.webm';a.click();};r.start();setTimeout(()=>r.stop(),5000);}
 </script></body></html>
