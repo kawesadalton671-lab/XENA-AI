@@ -1,50 +1,42 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XENA</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#0d0d0d;color:#fff;min-height:100vh;padding-bottom:120px}.top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}.logo{font-size:26px;font-weight:900}.logo b{color:#a855f7}.icons{font-size:20px}.sec{display:flex;justify-content:space-between;padding:16px}.sec h2{font-size:17px}.view{color:#888;font-size:12px}.hscroll{display:flex;gap:12px;overflow-x:auto;padding:0 16px 12px 16px}.hscroll::-webkit-scrollbar{display:none}.card{min-width:200px;background:#1c1c1e;border-radius:18px;padding:14px;border:1px solid #2a2a2e;position:relative}.badge{position:absolute;top:-6px;right:10px;padding:3px 7px;border-radius:8px;font-size:8px;font-weight:900}.new{background:#4ade80;color:#000}.hot{background:#facc15;color:#000}.icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}.card h3{font-size:13px}.card p{font-size:10px;color:#777;margin-top:3px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px}.tool{background:#1c1c1e;border-radius:18px;padding:14px;border:1px solid #2a2a2e}.ask{position:fixed;bottom:70px;left:12px;right:12px;background:#1c1c1e;border-radius:28px;display:flex;align-items:center;padding:5px 5px 5px 16px;border:1px solid #333}.ask input{flex:1;background:transparent;border:none;color:#fff;outline:none}.send{width:42px;height:42px;border-radius:50%;background:#00e5a0;border:none;font-weight:900}.tabs{position:fixed;bottom:0;left:0;right:0;height:58px;background:#0d0d0d;border-top:1px solid #222;display:flex;justify-content:space-around;align-items:center;font-size:10px;color:#666}.tab.active{color:#00e5a0}.chat{position:fixed;inset:0;background:#0b141a;z-index:99;display:none;flex-direction:column}.chat.on{display:flex}.chead{height:54px;background:#202c33;display:flex;align-items:center;gap:10px;padding:0 14px}.cbox{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px}.m{max-width:80%;padding:10px 12px;border-radius:14px;font-size:13px;white-space:pre-wrap}.me{background:#005c4b;align-self:flex-end}.ai{background:#202c33;align-self:flex-start}</style></head><body>
-<div class="top"><div class="logo">Open<span style="color:#4ade80">Chat</span> <b>XENA</b></div><div class="icons">🎁 🕒 👑</div></div>
-<div class="sec"><h2>Premium Features</h2><span class="view">View all ></span></div>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XENA</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#0d0d0d;color:#fff;min-height:100vh;padding-bottom:120px}.top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}.logo{font-size:26px;font-weight:900}.sec{display:flex;justify-content:space-between;padding:16px}.hscroll{display:flex;gap:12px;overflow-x:auto;padding:0 16px 12px}.hscroll::-webkit-scrollbar{display:none}.card{min-width:200px;background:#1c1c1e;border-radius:18px;padding:14px;border:1px solid #2a2a2e;position:relative}.badge{position:absolute;top:-6px;right:10px;padding:3px 7px;border-radius:8px;font-size:8px;font-weight:900}.new{background:#4ade80;color:#000}.hot{background:#facc15;color:#000}.icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}.card h3{font-size:13px}.card p{font-size:10px;color:#777}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px}.tool{background:#1c1c1e;border-radius:18px;padding:14px;border:1px solid #2a2a2e}.ask{position:fixed;bottom:70px;left:12px;right:12px;background:#1c1c1e;border-radius:28px;display:flex;align-items:center;padding:5px 5px 5px 16px;border:1px solid #333}.ask input{flex:1;background:transparent;border:none;color:#fff;outline:none}.send{width:42px;height:42px;border-radius:50%;background:#00e5a0;border:none;font-weight:900}.tabs{position:fixed;bottom:0;left:0;right:0;height:58px;background:#0d0d0d;border-top:1px solid #222;display:flex;justify-content:space-around;align-items:center;font-size:10px;color:#666}.tab.active{color:#00e5a0}.chat{position:fixed;inset:0;background:#0b141a;z-index:99;display:none;flex-direction:column}.chat.on{display:flex}.chead{height:54px;background:#202c33;display:flex;align-items:center;gap:10px;padding:0 14px}.cbox{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px}.m{max-width:80%;padding:10px 12px;border-radius:14px;font-size:13px;white-space:pre-wrap}.me{background:#005c4b;align-self:flex-end}.ai{background:#202c33;align-self:flex-start}</style></head><body>
+<div class="top"><div class="logo">Open<span style="color:#4ade80">Chat</span> XENA</div><div>🎁 🕒 👑</div></div>
+<div class="sec"><h2>Premium Features</h2><span style="color:#888;font-size:12px">View all ></span></div>
 <div class="hscroll">
-<div class="card" onclick="openAI('Solve math & science problem')"><div class="badge new">NEW</div><div class="icon" style="background:#1a3a1a">🧩</div><h3>AI Solver</h3><p>Snap to solve math & science</p></div>
-<div class="card" onclick="openAI('Ask anything with images')"><div class="badge hot">HOT</div><div class="icon" style="background:#1a2a4a">🖼️</div><h3>Image Tools</h3><p>Ask anything with images</p></div>
-<div class="card" onclick="openAI('DeepSeek R1 chat')"><div class="badge hot">HOT</div><div class="icon" style="background:#0a2a4a">🐬</div><h3>DeepSeek - R1</h3><p>Deep chat with DeepSeek</p></div>
+<div class="card" onclick="openAI('Solve math problem step by step')"><div class="badge new">NEW</div><div class="icon" style="background:#1a3a1a">🧩</div><h3>AI Solver</h3><p>Snap to solve math & science</p></div>
+<div class="card" onclick="openAI('Analyze this image for me')"><div class="badge hot">HOT</div><div class="icon" style="background:#1a2a4a">🖼️</div><h3>Image Tools</h3><p>Ask anything with images</p></div>
+<div class="card" onclick="openAI('Chat with DeepSeek R1')"><div class="badge hot">HOT</div><div class="icon" style="background:#0a2a4a">🐬</div><h3>DeepSeek - R1</h3><p>Deep chat with DeepSeek</p></div>
 </div>
 <div class="sec"><h2>Useful Tools</h2></div>
 <div class="grid">
-<div class="tool" onclick="openAI('Generate image: beautiful Uganda landscape')"><div class="icon" style="background:#3a1a5a">✨</div><h3>Image Generator</h3><p>Instantly generate images from text</p></div>
-<div class="tool" onclick="openAI('Write email for job')"><div class="icon" style="background:#4a3a1a">✉️</div><h3>Email Assistant</h3><p>Easily draft all types of emails</p></div>
-<div class="tool" onclick="openAI('What is Kampala? Tell me fully')"><div class="icon" style="background:#1a3a2a">🇺🇬</div><h3>XENA Uganda</h3><p>Ask about Kampala Uganda</p></div>
-<div class="tool" onclick="openAI('Who are you XENA?')"><div class="icon" style="background:#2a2a3a">💬</div><h3>XENA Chat</h3><p>Where Every Chat Feels Like Home</p></div>
+<div class="tool" onclick="openAI('Generate image of Kampala Uganda')"><div class="icon" style="background:#3a1a5a">✨</div><h3>Image Generator</h3><p>Instantly generate images</p></div>
+<div class="tool" onclick="openAI('Write professional email')"><div class="icon" style="background:#4a3a1a">✉️</div><h3>Email Assistant</h3><p>Easily draft emails</p></div>
+<div class="tool" onclick="openAI('Tell me about Kampala Uganda fully, history and places')"><div class="icon" style="background:#1a3a2a">🇺🇬</div><h3>XENA Uganda</h3><p>Ask about Kampala</p></div>
+<div class="tool" onclick="openAI('Who are you XENA? Where Every Chat Feels Like Home')"><div class="icon" style="background:#2a2a3a">💬</div><h3>XENA Chat</h3><p>Where Every Chat Feels Like Home</p></div>
 </div>
 <div class="ask"><input id="askBar" placeholder="Ask anything"><button class="send" onclick="fromBar()">➤</button></div>
-<div class="tabs"><div class="tab">⋯<br>Roles</div><div class="tab active">💬<br>Chats</div><div class="tab">⚙️<br>Settings</div></div>
-<div id="chat" class="chat"><div class="chead"><span onclick="closeAI()" style="font-size:22px">←</span><b id="ctitle">XENA AI</b><span id="stat" style="margin-left:auto;font-size:9px;background:#a855f7;padding:4px 8px;border-radius:10px">V25 gyqA FIXED</span></div><div id="cbox" class="cbox"></div><div style="padding:10px;background:#202c33;display:flex;gap:8px"><input id="cinput" placeholder="Ask XENA anything..." style="flex:1;height:42px;background:#2a3942;border:none;border-radius:22px;color:#fff;padding:0 14px;outline:none" onkeypress="if(event.key==='Enter')send()"><button onclick="send()" style="width:42px;height:42px;border-radius:50%;border:none;background:#00e5a0">➤</button></div></div>
+<div class="tabs"><div>⋯<br>Roles</div><div class="tab active">💬<br>Chats</div><div>⚙️<br>Settings</div></div>
+<div id="chat" class="chat"><div class="chead"><span onclick="closeAI()" style="font-size:22px">←</span><b>XENA AI</b><span id="stat" style="margin-left:auto;font-size:9px;background:#a855f7;padding:4px 8px;border-radius:10px">V29 Key2 READY</span></div><div id="cbox" class="cbox"></div><div style="padding:10px;background:#202c33;display:flex;gap:8px"><input id="cinput" placeholder="Ask XENA anything..." style="flex:1;height:42px;background:#2a3942;border:none;border-radius:22px;color:#fff;padding:0 14px;outline:none" onkeypress="if(event.key==='Enter')send()"><button onclick="send()" style="width:42px;height:42px;border-radius:50%;border:none;background:#00e5a0">➤</button></div></div>
 <script>
-const API_KEY = "AQ.Ab8RN6J_yMX7LR86qZLz_S_T3xz91gMCFtW8Q9MyexCfyNgyqA_elsCgyqA".trim();
-let hist = JSON.parse(localStorage.getItem('x25_h')||'[]');
-function openAI(p){document.getElementById('chat').classList.add('on');if(p){document.getElementById('cinput').value=p;setTimeout(send,400);}render();}
+const API_KEY = "AQ.Ab8RN6InVqe1UQPrRBAfICLfyHgecoquXxwy-MgOXUPl0BVt2g
+let hist=JSON.parse(localStorage.getItem('x29')||'[]');
+function openAI(p){document.getElementById('chat').classList.add('on');if(p){document.getElementById('cinput').value=p;setTimeout(send,300);}render();}
 function closeAI(){document.getElementById('chat').classList.remove('on')}
 function fromBar(){let v=document.getElementById('askBar').value.trim();if(!v)return;document.getElementById('askBar').value='';openAI(v);}
 function render(){document.getElementById('cbox').innerHTML=hist.map(h=>`<div class="m ${h.r}">${h.t}</div>`).join('');document.getElementById('cbox').scrollTop=99999}
 async function send(){
  let inp=document.getElementById('cinput');let q=inp.value.trim();if(!q)return;
  hist.push({r:'me',t:q});inp.value='';render();
- hist.push({r:'ai',t:'XENA thinking...'});render();
+ hist.push({r:'ai',t:'XENA typing...'});render();
  try{
-  const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,{
-   method:'POST',
-   headers:{'Content-Type':'application/json'},
-   body: JSON.stringify({contents:[{parts:[{text:q}]}]})
-  });
-  const data = await resp.json();
-  if(data.error){throw new Error(data.error.message + " (code "+data.error.code+")");}
-  let ans = data.candidates?.[0]?.content?.parts?.[0]?.text || "No answer";
-  hist.pop(); hist.push({r:'ai',t:ans});
-  document.getElementById('stat').innerText="Online ✅";
- }catch(err){
-  hist.pop();
-  hist.push({r:'ai',t:"❌ STILL INVALID: "+err.message+"\n\nFIX: 1) Go to Credentials -> gyqA key -> Set Restrictions=None -> Save -> Wait 2 mins -> Try again\n\n2) If still fails, your key is from wrong project. Create NEW key from aistudio.google.com/apikey - copy AIza... key instead of AQ..."});
-  document.getElementById('stat').innerText="Invalid Key ❌";
+  const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:q}]}]})});
+  const d=await r.json();
+  if(d.error)throw new Error(d.error.message);
+  let a=d.candidates[0].content.parts[0].text;
+  hist.pop();hist.push({r:'ai',t:a});document.getElementById('stat').innerText="Online ✅";
+ }catch(e){
+  hist.pop();hist.push({r:'ai',t:"Error: "+e.message+"\n\nIf 403/401: Enable Generative Language API at console.cloud.google.com"});
  }
- localStorage.setItem('x25_h',JSON.stringify(hist));
- render();
+ localStorage.setItem('x29',JSON.stringify(hist));render();
 }
 render();
 </script></body></html>
