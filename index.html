@@ -1,30 +1,356 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XENA AI</title>
-<script>const API_KEY="AQ.Ab8RN6InVqe1UQPrRBAfICLfyHgecoquXxwy-MgOXUPl0BVt2g
-<style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#0a0a0f;color:#fff;padding-bottom:80px}.top{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#0f0f18;border-bottom:1px solid #222}.logo-img{width:42px;height:42px;border-radius:12px}.brand{font-size:20px;font-weight:900}.banner{margin:12px;border-radius:18px;overflow:hidden;border:1px solid #2a2a3e}.banner img{width:100%;display:block}.sec{padding:14px 16px;font-weight:800;display:flex;justify-content:space-between}.hscroll{display:flex;gap:10px;overflow-x:auto;padding:0 16px 10px}.card{min-width:160px;background:#1c1c2e;border-radius:16px;padding:14px;border:1px solid #2a2a4a;position:relative}.badge{position:absolute;top:-6px;right:8px;padding:3px 7px;border-radius:8px;font-size:8px;font-weight:900}.new{background:#4ade80;color:#000}.hot{background:#facc15;color:#000}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}.tool{background:#1c1c1e;border-radius:16px;padding:14px;border:1px solid #2a2a3a}.ask{position:fixed;bottom:68px;left:10px;right:10px;background:#1e1e2e;border-radius:28px;display:flex;padding:5px 5px 5px 16px;border:1px solid #333}.ask input{flex:1;background:transparent;border:none;color:#fff;outline:none}.tabs{position:fixed;bottom:0;left:0;right:0;height:58px;background:#0f0f18;border-top:1px solid #222;display:flex;justify-content:space-around;align-items:center;color:#666;font-size:11px}.chat{position:fixed;inset:0;background:#0b0b14;z-index:99;display:none;flex-direction:column}.chat.on{display:flex}.cbox{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px}.m{max-width:82%;padding:10px 12px;border-radius:14px;font-size:13px;white-space:pre-wrap}.me{background:#a855f7;align-self:flex-end}.ai{background:#1e1e2e;align-self:flex-start}</style></head><body>
-<div class="top"><img src="logo.png" class="logo-img"><div class="brand">XENA AI</div><div style="margin-left:auto;font-size:10px;background:#a855f7;padding:4px 10px;border-radius:20px">V14 CAPCUT</div></div>
-<div class="banner"><img src="banner.jpg"></div>
-<div class="sec"><span>Premium Features</span><span style="color:#888;font-size:11px">View all ></span></div>
-<div class="hscroll">
-<div class="card" onclick="openAI('Solve math')"><div class="badge new">NEW</div>🧩<br><b style="font-size:12px">AI Solver</b></div>
-<div class="card" onclick="openAI('Analyze image')"><div class="badge hot">HOT</div>🖼️<br><b style="font-size:12px">Image Tools</b></div>
-<div class="card" onclick="openAI('Deep chat')"><div class="badge hot">HOT</div>🐬<br><b style="font-size:12px">DeepSeek R1</b></div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+<title>XENA V21 ALL</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;
+font-family:system-ui;padding-bottom:90px}
+.top{padding:14px 16px;display:flex;
+justify-content:space-between}
+.top b{font-size:22px}
+.top b span{color:#4ade80}
+.sec{padding:14px 16px;display:flex;
+justify-content:space-between}
+.sec h2{font-size:17px;font-weight:800}
+.prem{padding:0 12px;display:grid;
+grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#1a1a1a;border-radius:20px;
+padding:14px;border:1px solid #262626;
+position:relative}
+.big{grid-row:span 2}
+.badge{position:absolute;top:8px;right:8px;
+padding:3px 8px;border-radius:20px;
+font-size:8px;font-weight:900}
+.new{background:#4ade80;color:#000}
+.hot{background:#fbbf24;color:#000}
+.ico{width:44px;height:44px;border-radius:14px;
+display:flex;align-items:center;
+justify-content:center;font-size:22px;
+margin-bottom:10px}
+.full{grid-column:span 2;display:flex;
+align-items:center;gap:12px}
+.tools{padding:0 12px;display:grid;
+grid-template-columns:1fr 1fr;gap:12px;
+margin-top:8px}
+.tool{background:#1a1a1a;border-radius:18px;
+padding:14px;border:1px solid #262626}
+.tool b{font-size:12px;display:block}
+.tool span{font-size:10px;color:#777}
+.ask{position:fixed;bottom:75px;left:12px;
+right:12px;background:#1e1e1e;
+border-radius:28px;display:flex;
+align-items:center;padding:8px 18px;
+border:1px solid #333}
+.ask input{flex:1;background:transparent;
+border:none;color:#fff;outline:none}
+.ask button{width:42px;height:42px;
+border-radius:50%;background:#000;
+border:none;color:#00d9a5;font-size:18px}
+.tabs{position:fixed;bottom:0;left:0;right:0;
+height:68px;background:#0f0f0f;
+border-top:1px solid #222;display:flex;
+justify-content:space-around;
+align-items:center;color:#666;font-size:11px}
+.chat{position:fixed;inset:0;background:#000;
+z-index:100;display:none;flex-direction:column}
+.chat.on{display:flex}
+.cbox{flex:1;overflow:auto;padding:14px;
+display:flex;flex-direction:column;gap:10px}
+.m{max-width:84%;padding:10px 14px;
+border-radius:14px;font-size:13px;
+white-space:pre-wrap}
+.me{background:#00d9a5;color:#000;
+align-self:flex-end}
+.ai{background:#1e1e1e;align-self:flex-start;
+border:1px solid #333}
+</style>
+</head>
+<body>
+<div class="top">
+<b>Open<span>Chat</span> XENA</b>
+<div style="display:flex;gap:14px">
+<span>🎁</span><span>🕒</span><span>👑</span>
 </div>
-<div class="sec">Useful Tools</div>
-<div class="grid">
-<div class="tool" onclick="openAI('Generate images of any kind)">✨<br><b style="font-size:12px">Image Gen</b></div>
-<div class="tool" onclick="openAI('Write email')">✉️<br><b style="font-size:12px">Email</b></div>
-<div class="tool" onclick="openAI('Tell me about Kampala')">🇺🇬<br><b style="font-size:12px">Uganda AI</b></div>
-<div class="tool" onclick="openAI('Who are you XENA?')">💬<br><b style="font-size:12px">XENA Chat</b></div>
 </div>
-<div class="ask"><input id="askBar" placeholder="Ask XENA anything..."><button onclick="fromBar()" style="width:38px;height:38px;border-radius:50%;background:#a855f7;border:none;color:#fff">➤</button></div>
-<div class="tabs"><div>Roles</div><div style="color:#a855f7">Chats</div><div>Settings</div></div>
-<div id="chat" class="chat"><div style="height:56px;background:#151525;display:flex;align-items:center;gap:10px;padding:0 14px"><img src="logo.png" style="width:32px;height:32px;border-radius:8px"><b>XENA AI</b><span id="stat" style="margin-left:auto;font-size:8px;background:#a855f7;padding:4px 8px;border-radius:10px">READY</span><span onclick="closeAI()" style="margin-left:10px">✕</span></div><div id="cbox" class="cbox"></div><div style="padding:10px;background:#151525;display:flex;gap:8px"><input id="cinput" placeholder="Ask XENA..." style="flex:1;height:40px;background:#1e1e2e;border:1px solid #333;border-radius:20px;color:#fff;padding:0 14px;outline:none" onkeypress="if(event.key==='Enter')send()"><button onclick="send()" style="width:40px;height:40px;border-radius:50%;border:none;background:#a855f7;color:#fff">➤</button></div></div>
+<div class="sec">
+<h2>Premium Features</h2>
+<span>View all ></span>
+</div>
+<div class="prem">
+<div class="card big"
+onclick="openChat('Solve math')">
+<div class="badge new">NEW</div>
+<div class="ico"
+style="background:#0f2a0f">📐</div>
+<b>AI Solver</b><br>
+<span style="font-size:11px;color:#777">
+Snap to solve math</span>
+</div>
+<div class="card"
+onclick="openChat('Image tools')">
+<div class="badge hot">HOT</div>
+<div style="display:flex;gap:10px">
+<div class="ico"
+style="background:#0f1e3a;margin:0">🖼️</div>
+<div>
+<b style="font-size:12px">Image Tools</b><br>
+<span style="font-size:10px;color:#777">
+Ask with images</span>
+</div>
+</div>
+</div>
+<div class="card"
+onclick="openChat('DeepSeek')">
+<div class="badge hot">HOT</div>
+<div style="display:flex;gap:10px">
+<div class="ico"
+style="background:#0f203a;margin:0">🐬</div>
+<div>
+<b style="font-size:12px">DeepSeek R1</b><br>
+<span style="font-size:10px;color:#777">
+Deep chat</span>
+</div>
+</div>
+</div>
+<div class="card full"
+onclick="openChat('Style')">
+<div class="badge hot">HOT</div>
+<div class="ico"
+style="background:#2a1f4a;margin:0">✨</div>
+<div>
+<b style="font-size:12px">Image Style</b><br>
+<span style="font-size:10px;color:#777">
+Convert styles</span>
+</div>
+</div>
+</div>
+<div class="sec" style="margin-top:20px">
+<h2>Useful Tools - ALL 10</h2>
+</div>
+<div class="tools">
+<div class="tool"
+onclick="openChat('Generate image')">
+<div class="ico"
+style="background:#3a1f3a">✨</div>
+<b>Image Gen</b>
+<span>Generate images</span>
+</div>
+<div class="tool"
+onclick="openChat('Write email')">
+<div class="ico"
+style="background:#3a2a0f">✉️</div>
+<b>Email</b>
+<span>Draft emails</span>
+</div>
+<div class="tool"
+onclick="openChat('Kampala guide')">
+<div class="ico"
+style="background:#0f2a1a">🇺🇬</div>
+<b>Uganda Guide</b>
+<span>Kampala places</span>
+</div>
+<div class="tool"
+onclick="openChat('Who is XENA?')">
+<div class="ico"
+style="background:#1a1a3a">💬</div>
+<b>XENA Chat</b>
+<span>All-in-one AI</span>
+</div>
+<div class="tool"
+onclick="openChat('CapCut edit')">
+<div class="ico"
+style="background:#2a0f1a">🎬</div>
+<b>CapCut</b>
+<span>Video edit</span>
+</div>
+<div class="tool"
+onclick="openChat('Translate')">
+<div class="ico"
+style="background:#0f2a2a">🌍</div>
+<b>Translator</b>
+<span>English Luganda</span>
+</div>
+<div class="tool"
+onclick="openChat('Homework')">
+<div class="ico"
+style="background:#2a2a0f">📚</div>
+<b>Homework</b>
+<span>School help</span>
+</div>
+<div class="tool"
+onclick="openChat('Business')">
+<div class="ico"
+style="background:#1a2a0f">💼</div>
+<b>Business</b>
+<span>Hustle ideas</span>
+</div>
+<div class="tool"
+onclick="openChat('Lyrics')">
+<div class="ico"
+style="background:#2a0f2a">🎵</div>
+<b>Lyrics</b>
+<span>Generate songs</span>
+</div>
+<div class="tool"
+onclick="openChat('Money')">
+<div class="ico"
+style="background:#2a1f0f">💰</div>
+<b>Money</b>
+<span>Earn online</span>
+</div>
+</div>
+<div class="ask">
+<input id="askBar"
+placeholder="Ask anything...">
+<button onclick="fromBar()">➤</button>
+</div>
+<div class="tabs">
+<div>⚪<br>Roles</div>
+<div style="color:#00d9a5">💬<br>Chats</div>
+<div>⚙️<br>Settings</div>
+</div>
+<div id="chat" class="chat">
+<div style="height:56px;background:#111;
+display:flex;align-items:center;
+padding:0 14px;gap:10px;
+border-bottom:1px solid #222">
+<b>XENA AI</b>
+<span id="stat"
+style="margin-left:auto;font-size:8px;
+background:#00d9a5;color:#000;
+padding:4px 10px;border-radius:20px">
+AI STUDIO</span>
+<span onclick="closeChat()"
+style="margin-left:12px">✕</span>
+</div>
+<div style="padding:8px;background:#111;
+display:flex;gap:6px">
+<input id="keyInput"
+placeholder="Paste AIza... key"
+style="flex:1;height:36px;background:#000;
+border:1px solid #333;border-radius:8px;
+color:#fff;padding:0 10px;font-size:11px">
+<button onclick="saveKey()"
+style="padding:6px 10px;border-radius:8px;
+border:none;background:#00d9a5;color:#000;
+font-size:11px">SAVE</button>
+</div>
+<div id="cbox" class="cbox"></div>
+<div style="padding:10px;background:#111;
+display:flex;gap:8px;
+border-top:1px solid #222">
+<input id="cinput"
+placeholder="Ask XENA..."
+style="flex:1;height:42px;
+background:#1e1e1e;border:1px solid #333;
+border-radius:22px;color:#fff;
+padding:0 16px;outline:none"
+onkeypress="if(event.key==='Enter')send()">
+<button onclick="send()"
+style="width:42px;height:42px;
+border-radius:50%;border:none;
+background:#00d9a5;color:#000">➤</button>
+</div>
+</div>
 <script>
-let hist=JSON.parse(localStorage.getItem('xena14')||'[]');
-function openAI(p){document.getElementById('chat').classList.add('on');if(p){document.getElementById('cinput').value=p;setTimeout(send,300);}render();}
-function closeAI(){document.getElementById('chat').classList.remove('on');}
-function fromBar(){let v=document.getElementById('askBar').value.trim();if(!v)return;document.getElementById('askBar').value='';openAI(v);}
-function render(){let b=document.getElementById('cbox');b.innerHTML=hist.map(h=>`<div class="m ${h.r}">${h.t}</div>`).join('');b.scrollTop=999999;}
-async function send(){let i=document.getElementById('cinput');let q=i.value.trim();if(!q)return;hist.push({r:'me',t:q});i.value='';render();hist.push({r:'ai',t:'XENA typing...'});render();try{let r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:q}]}]})});let d=await r.json();if(d.error)throw new Error(d.error.message);let a=d.candidates[0].content.parts[0].text;hist.pop();hist.push({r:'ai',t:a});document.getElementById('stat').innerText='Online ✅';}catch(e){hist.pop();hist.push({r:'ai',t:'Error: '+e.message});}localStorage.setItem('xena14',JSON.stringify(hist));render();}
+let hist=JSON.parse(
+localStorage.getItem('x21')||'[]');
+let savedKey=
+localStorage.getItem('xena_key')||'';
+function openChat(p){
+document.getElementById('chat')
+.classList.add('on');
+document.getElementById('keyInput')
+.value=savedKey;
+if(p){
+document.getElementById('cinput')
+.value=p;
+setTimeout(send,300);
+}
 render();
-</script></body></html>
+}
+function closeChat(){
+document.getElementById('chat')
+.classList.remove('on');
+}
+function fromBar(){
+let v=document.getElementById('askBar')
+.value.trim();
+if(!v)return;
+document.getElementById('askBar').value='';
+openChat(v);
+}
+function saveKey(){
+let k=document.getElementById('keyInput')
+.value.trim();
+if(!k){
+alert('Get key at aistudio.google.com/app/apikey');
+return;
+}
+localStorage.setItem('xena_key',k);
+savedKey=k;
+document.getElementById('stat')
+.innerText='Saved ✅';
+}
+function render(){
+let b=document.getElementById('cbox');
+if(!hist.length){
+b.innerHTML='<div class="m ai">👋 XENA V21 ALL TOOLS!\\n\\n10 Tools:\\n1.Image Gen\\n2.Email\\n3.Uganda\\n4.XENA Chat\\n5.CapCut\\n6.Translator\\n7.Homework\\n8.Business\\n9.Lyrics\\n10.Money\\n\\nPaste AI Studio key -> SAVE</div>';
+return;
+}
+b.innerHTML=hist.map(h=>
+`<div class="m ${h.r}">${h.t
+.replace(/</g,'&lt;')}</div>`
+).join('');
+b.scrollTop=999999;
+}
+async function send(){
+let i=document.getElementById('cinput');
+let q=i.value.trim();
+if(!q)return;
+let k=document.getElementById('keyInput')
+.value.trim()||savedKey;
+if(!k){
+alert('Paste AI Studio key!');
+return;
+}
+localStorage.setItem('xena_key',k);
+savedKey=k;
+hist.push({r:'me',t:q});
+i.value='';
+render();
+hist.push({r:'ai',t:'XENA typing...'});
+render();
+try{
+let u="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key="+k;
+let r=await fetch(u,{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify(
+{contents:[{parts:[{text:q}]}]})
+});
+let d=await r.json();
+if(d.error)throw new Error(d.error.message);
+let a=d.candidates[0].content.parts[0].text;
+hist.pop();
+hist.push({r:'ai',t:a});
+document.getElementById('stat')
+.innerText='Online ✅';
+}catch(e){
+hist.pop();
+hist.push({r:'ai',t:'❌ '+e.message});
+}
+localStorage.setItem('x21',
+JSON.stringify(hist));
+render();
+}
+document.getElementById('keyInput')
+.value=savedKey;
+render();
+</script>
+</body>
+  </html>
