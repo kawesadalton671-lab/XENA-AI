@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 content="width=device-width,initial-scale=1">
-<title>XENA V21 ALL</title>
+<title>XENA V23 REAL APP</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000;color:#fff;
@@ -82,7 +82,7 @@ border:1px solid #333}
 </div>
 <div class="prem">
 <div class="card big"
-onclick="openChat('Solve math')">
+onclick="openChat('Solve math problem')">
 <div class="badge new">NEW</div>
 <div class="ico"
 style="background:#0f2a0f">📐</div>
@@ -104,7 +104,7 @@ Ask with images</span>
 </div>
 </div>
 <div class="card"
-onclick="openChat('DeepSeek')">
+onclick="openChat('DeepSeek chat')">
 <div class="badge hot">HOT</div>
 <div style="display:flex;gap:10px">
 <div class="ico"
@@ -117,7 +117,7 @@ Deep chat</span>
 </div>
 </div>
 <div class="card full"
-onclick="openChat('Style')">
+onclick="openChat('Style convert')">
 <div class="badge hot">HOT</div>
 <div class="ico"
 style="background:#2a1f4a;margin:0">✨</div>
@@ -133,70 +133,70 @@ Convert styles</span>
 </div>
 <div class="tools">
 <div class="tool"
-onclick="openChat('Generate image')">
+onclick="openChat('Generate image of')">
 <div class="ico"
 style="background:#3a1f3a">✨</div>
 <b>Image Gen</b>
 <span>Generate images</span>
 </div>
 <div class="tool"
-onclick="openChat('Write email')">
+onclick="openChat('Write email for')">
 <div class="ico"
 style="background:#3a2a0f">✉️</div>
 <b>Email</b>
 <span>Draft emails</span>
 </div>
 <div class="tool"
-onclick="openChat('Kampala guide')">
+onclick="openChat('Guide me in Kampala')">
 <div class="ico"
 style="background:#0f2a1a">🇺🇬</div>
 <b>Uganda Guide</b>
 <span>Kampala places</span>
 </div>
 <div class="tool"
-onclick="openChat('Who is XENA?')">
+onclick="openChat('Hello XENA')">
 <div class="ico"
 style="background:#1a1a3a">💬</div>
 <b>XENA Chat</b>
 <span>All-in-one AI</span>
 </div>
 <div class="tool"
-onclick="openChat('CapCut edit')">
+onclick="openChat('CapCut edit idea')">
 <div class="ico"
 style="background:#2a0f1a">🎬</div>
 <b>CapCut</b>
 <span>Video edit</span>
 </div>
 <div class="tool"
-onclick="openChat('Translate')">
+onclick="openChat('Translate to Luganda')">
 <div class="ico"
 style="background:#0f2a2a">🌍</div>
 <b>Translator</b>
 <span>English Luganda</span>
 </div>
 <div class="tool"
-onclick="openChat('Homework')">
+onclick="openChat('Help with homework')">
 <div class="ico"
 style="background:#2a2a0f">📚</div>
 <b>Homework</b>
 <span>School help</span>
 </div>
 <div class="tool"
-onclick="openChat('Business')">
+onclick="openChat('Business plan for Kampala')">
 <div class="ico"
 style="background:#1a2a0f">💼</div>
 <b>Business</b>
 <span>Hustle ideas</span>
 </div>
 <div class="tool"
-onclick="openChat('Lyrics')">
+onclick="openChat('Write song lyrics')">
 <div class="ico"
 style="background:#2a0f2a">🎵</div>
 <b>Lyrics</b>
 <span>Generate songs</span>
 </div>
 <div class="tool"
-onclick="openChat('Money')">
+onclick="openChat('How to make money in Uganda')">
 <div class="ico"
 style="background:#2a1f0f">💰</div>
 <b>Money</b>
@@ -223,28 +223,16 @@ border-bottom:1px solid #222">
 style="margin-left:auto;font-size:8px;
 background:#00d9a5;color:#000;
 padding:4px 10px;border-radius:20px">
-AI STUDIO</span>
+V23 REAL APP</span>
 <span onclick="closeChat()"
 style="margin-left:12px">✕</span>
-</div>
-<div style="padding:8px;background:#111;
-display:flex;gap:6px">
-<input id="keyInput"
-placeholder="Paste AIza... key"
-style="flex:1;height:36px;background:#000;
-border:1px solid #333;border-radius:8px;
-color:#fff;padding:0 10px;font-size:11px">
-<button onclick="saveKey()"
-style="padding:6px 10px;border-radius:8px;
-border:none;background:#00d9a5;color:#000;
-font-size:11px">SAVE</button>
 </div>
 <div id="cbox" class="cbox"></div>
 <div style="padding:10px;background:#111;
 display:flex;gap:8px;
 border-top:1px solid #222">
 <input id="cinput"
-placeholder="Ask XENA..."
+placeholder="Ask XENA anything..."
 style="flex:1;height:42px;
 background:#1e1e1e;border:1px solid #333;
 border-radius:22px;color:#fff;
@@ -257,19 +245,18 @@ background:#00d9a5;color:#000">➤</button>
 </div>
 </div>
 <script>
+// === REAL APP KEY CONFIG ===
+let API_KEY="AQ.Ab8RN6LnnTNyPbjkoJ8fDLNrCQLQFuvcoHWul1TujJ3s0vJWQg
+// ^ REPLACE dots with your FULL AQ key from screenshot!
 let hist=JSON.parse(
-localStorage.getItem('x21')||'[]');
-let savedKey=
-localStorage.getItem('xena_key')||'';
+localStorage.getItem('x23')||'[]');
 function openChat(p){
 document.getElementById('chat')
 .classList.add('on');
-document.getElementById('keyInput')
-.value=savedKey;
 if(p){
 document.getElementById('cinput')
 .value=p;
-setTimeout(send,300);
+setTimeout(send,400);
 }
 render();
 }
@@ -284,22 +271,10 @@ if(!v)return;
 document.getElementById('askBar').value='';
 openChat(v);
 }
-function saveKey(){
-let k=document.getElementById('keyInput')
-.value.trim();
-if(!k){
-alert('Get key at aistudio.google.com/app/apikey');
-return;
-}
-localStorage.setItem('xena_key',k);
-savedKey=k;
-document.getElementById('stat')
-.innerText='Saved ✅';
-}
 function render(){
 let b=document.getElementById('cbox');
 if(!hist.length){
-b.innerHTML='<div class="m ai">👋 XENA V21 ALL TOOLS!\\n\\n10 Tools:\\n1.Image Gen\\n2.Email\\n3.Uganda\\n4.XENA Chat\\n5.CapCut\\n6.Translator\\n7.Homework\\n8.Business\\n9.Lyrics\\n10.Money\\n\\nPaste AI Studio key -> SAVE</div>';
+b.innerHTML='<div class="m ai">👋 XENA V23 REAL APP!\\n\\nReady as real Android app!\\n\\n10 Tools working!</div>';
 return;
 }
 b.innerHTML=hist.map(h=>
@@ -312,26 +287,26 @@ async function send(){
 let i=document.getElementById('cinput');
 let q=i.value.trim();
 if(!q)return;
-let k=document.getElementById('keyInput')
-.value.trim()||savedKey;
-if(!k){
-alert('Paste AI Studio key!');
+if(API_KEY.includes("REPLACE")){
+alert("Set API_KEY in code! Line 200");
 return;
 }
-localStorage.setItem('xena_key',k);
-savedKey=k;
 hist.push({r:'me',t:q});
 i.value='';
 render();
-hist.push({r:'ai',t:'XENA typing...'});
+hist.push({r:'ai',t:'XENA thinking...'});
 render();
 try{
-let u="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key="+k;
-let r=await fetch(u,{
+let url="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+let r=await fetch(url,{
 method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify(
-{contents:[{parts:[{text:q}]}]})
+headers:{
+'Content-Type':'application/json',
+'x-goog-api-key':API_KEY
+},
+body:JSON.stringify({
+contents:[{parts:[{text:q}]}]
+})
 });
 let d=await r.json();
 if(d.error)throw new Error(d.error.message);
@@ -344,13 +319,11 @@ document.getElementById('stat')
 hist.pop();
 hist.push({r:'ai',t:'❌ '+e.message});
 }
-localStorage.setItem('x21',
+localStorage.setItem('x23',
 JSON.stringify(hist));
 render();
 }
-document.getElementById('keyInput')
-.value=savedKey;
 render();
 </script>
 </body>
-  </html>
+</html>
